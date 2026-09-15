@@ -160,7 +160,7 @@ html[dir="rtl"] .hero-copy,html[dir="rtl"] .about-copy,html[dir="rtl"] .service-
 
 .mobile-bottom-nav{display:none}
 @media(max-width:850px){
-  .mobile-bottom-nav{position:fixed;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;left:0;right:0;bottom:0;z-index:30;padding:8px 12px max(8px, env(safe-area-inset-bottom));background:rgba(238,237,232,.96);border-top:1px solid var(--line);backdrop-filter:blur(14px)}
+  .mobile-bottom-nav{position:fixed;display:grid;grid-template-columns:repeat(4,1fr);gap:0;left:0;right:0;bottom:0;width:100%;z-index:30;padding:8px 0 max(8px, env(safe-area-inset-bottom));background:rgba(238,237,232,.96);border-top:1px solid var(--line);backdrop-filter:blur(14px)}
   .hero{padding-inline:16px;gap:32px}
   .hero-art{order:1;height:min(82vw,390px);min-height:270px}
   .hero-copy{order:2}
