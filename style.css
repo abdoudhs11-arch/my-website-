@@ -163,3 +163,25 @@ html[dir="rtl"] .kicker{direction:rtl}
   .mobile-nav .mobile-langs button{border:1px solid var(--line);background:transparent;padding:10px 13px;color:var(--grey);font:500 10px "DM Mono";letter-spacing:.12em}
   .mobile-nav .mobile-langs button.active{background:var(--black);color:white;border-color:var(--black)}
 }
+
+/* Prevent translated and condensed headlines from colliding across viewports. */
+.hero h1,.about h2,.service-heading h2,.service-card h3,.work h2,.contact h2{
+  max-width:100%;
+  overflow-wrap:break-word;
+  text-wrap:balance;
+}
+.hero h1 br,.about h2 br,.service-heading h2 br,.service-card h3 br,.work h2 br,.contact h2 br{display:block}
+html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3{letter-spacing:0!important;overflow-wrap:anywhere}
+@media(max-width:850px){
+  .hero h1,.about h2,.service-heading h2,.service-card h3,.work h2,.contact h2{letter-spacing:-.045em;line-height:.92}
+  html[dir="rtl"] .hero h1,html[dir="rtl"] .about h2,html[dir="rtl"] .service-heading h2,html[dir="rtl"] .service-card h3,html[dir="rtl"] .work h2,html[dir="rtl"] .contact h2{line-height:1.08}
+}
+
+/* Keep the three service labels readable as a single visual system. */
+.kicker,[data-i18n="kicker"]{white-space:normal;overflow-wrap:anywhere}
+.kicker span[data-i18n="kicker"]{display:inline;width:auto;height:auto;background:none;vertical-align:baseline;margin-right:0}
+@media(max-width:850px){.kicker span[data-i18n="kicker"]{display:inline}}
+.service-card p,.intro,.hero-intro,.about-bottom p,.info-copy,.form-note{overflow-wrap:anywhere}
+.navigation-spacer{display:none}
+
+html[dir="rtl"] .hero-copy,html[dir="rtl"] .about-copy,html[dir="rtl"] .service-heading,html[dir="rtl"] .work-head,html[dir="rtl"] .contact{text-align:right}
