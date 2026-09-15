@@ -55,7 +55,7 @@ nav a:hover:after{width:100%}
 .art-label,.coordinates,.art-bottom{position:absolute;z-index:6;font:8px "DM Mono";letter-spacing:.12em}
 .art-label{top:18px;left:18px}.coordinates{top:18px;right:18px;text-align:right}.crosshair{position:absolute;z-index:7;left:50%;top:50%;transform:translate(-50%,-50%);font-size:20px;color:white}
 .art-bottom{left:18px;right:18px;bottom:18px;display:flex;justify-content:space-between;color:white}
-.hero-scroll{position:absolute;bottom:28px;left:max(35px,calc((100vw - 1440px)/2));font:8px "DM Mono";letter-spacing:.13em;color:var(--grey)}
+.hero-scroll{position:absolute;bottom:28px;left:max(35px,calc((100vw - 1440px)/2));font:8px "DM Mono";letter-spacing:.13em;color:var(--grey);white-space:nowrap}
 .hero-scroll span{display:inline-block;width:35px;height:1px;background:var(--grey);vertical-align:middle;margin-right:10px}
 @keyframes float{to{transform:translate(7%,-5%) scale(1.08)}}
 
