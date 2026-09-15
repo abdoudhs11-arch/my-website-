@@ -108,6 +108,11 @@ html[dir="rtl"] .contact-title-wrap .kicker{font-family:"Noto Sans Arabic","DM M
 
 @media(max-width:850px){
   .contact-hero{padding:125px 25px 65px}
+  .form-wrap input,.form-wrap textarea{font-size:16px}
+  .submit-btn{min-height:64px}
+  .direct-contact>a,.social-row>div a{min-height:44px;display:flex;align-items:center}
+  .social-row>div{gap:8px 14px}
+
   .contact-meta{top:95px}
   .contact-title-wrap{padding-top:10px}
   .contact-title-wrap h1{font-size:14.5vw;line-height:.88;max-width:100%}
