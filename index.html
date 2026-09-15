@@ -2,9 +2,10 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Signatrix — Make Your Mark</title>
   <meta name="description" content="Signatrix — signage, spatial identity and digital communication.">
+  <link rel="icon" type="image/png" href="public/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+Arabic:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -39,6 +40,13 @@
       <button class="menu" aria-label="Menu"><span></span><span></span></button>
     </div>
   </header>
+
+  <nav class="mobile-bottom-nav" aria-label="Mobile navigation">
+    <a href="#about"><span>01</span><b data-i18n="agency">Agency</b></a>
+    <a href="#services"><span>02</span><b data-i18n="expertise">Expertise</b></a>
+    <a href="#work"><span>03</span><b data-i18n="work">Work</b></a>
+    <a href="contact.html"><span>04</span><b data-i18n="contact">Contact</b></a>
+  </nav>
 
   <main>
     <section class="hero">
@@ -90,7 +98,7 @@
 
       <div class="service-card card-one">
         <span class="number">01</span>
-        <div class="service-icon">◉</div>
+        <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 48 48" role="img"><circle cx="24" cy="24" r="17"></circle><circle cx="24" cy="24" r="5"></circle><path d="M24 7v7M24 34v7M7 24h7M34 24h7"></path></svg></div>
         <h3 data-i18n-html="signageTitle">Signage<br><i>& Fit-out</i></h3>
         <p data-i18n="signageCopy">Exterior identities, illuminated letters, interior branding, 3D signage and complete branded spaces.</p>
         <a href="contact.html#project">EXPLORE FIELD <b>↗</b></a>
@@ -98,7 +106,7 @@
 
       <div class="service-card card-two">
         <span class="number">02</span>
-        <div class="service-icon">✦</div>
+        <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 48 48" role="img"><path d="M24 5l4.5 14.5L43 24l-14.5 4.5L24 43l-4.5-14.5L5 24l14.5-4.5L24 5Z"></path><circle cx="24" cy="24" r="3"></circle></svg></div>
         <h3 data-i18n-html="digitalTitle">Communication<br><i>& Digital</i></h3>
         <p data-i18n="digitalCopy">Brand identity, art direction, campaigns, social content, websites and digital experiences.</p>
         <a href="contact.html#project">EXPLORE FIELD <b>↗</b></a>

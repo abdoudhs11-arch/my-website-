@@ -1,0 +1,48 @@
+{
+  "site": {
+    "name": "SIGNATRIX",
+    "tagline": "COMMUNICATION & DIGITAL",
+    "location": "ALGIERS / ALGERIA",
+    "year": 2026,
+    "email": "hello@signatrix.dz"
+  },
+  "languages": ["fr", "en", "ar"],
+  "translations": {
+    "en": {
+      "agency": "Agency",
+      "expertise": "Expertise",
+      "work": "Work",
+      "contact": "Contact",
+      "startProject": "Start a project",
+      "heroTitle": "MAKE YOUR<br><em>MARK.</em>",
+      "intro": "We create identities that don't simply occupy space — they <strong>change it.</strong>",
+      "aboutTitle": "A brand should be<br><span>felt</span> before it's read.",
+      "servicesTitle": "Physical.<br><em>Digital.</em><br>Connected.",
+      "contactTitle": "LET'S MAKE<br>SOMETHING<br><em>IMPOSSIBLE TO IGNORE.</em>"
+    },
+    "fr": {
+      "agency": "Agence",
+      "expertise": "Expertise",
+      "work": "Réalisations",
+      "contact": "Contact",
+      "startProject": "Démarrer un projet",
+      "heroTitle": "FAITES VOTRE<br><em>MARQUE.</em>",
+      "intro": "Nous créons des identités qui ne se contentent pas d’occuper l’espace — elles <strong>le transforment.</strong>",
+      "aboutTitle": "Une marque doit être<br><span>ressentie</span> avant d’être lue.",
+      "servicesTitle": "Physique.<br><em>Digital.</em><br>Connecté.",
+      "contactTitle": "CRÉONS<br><span>QUELQUE CHOSE</span><br><em>D’IMPOSSIBLE À IGNORER.</em>"
+    },
+    "ar": {
+      "agency": "الوكالة",
+      "expertise": "خدماتنا",
+      "work": "أعمالنا",
+      "contact": "تواصل معنا",
+      "startProject": "ابدأ مشروعًا",
+      "heroTitle": "اترك<br><em>بصمتك.</em>",
+      "intro": "نصنع هويات لا تكتفي باحتلال المكان — بل <strong>تغيّره.</strong>",
+      "aboutTitle": "يجب أن تكون العلامة<br><span>محسوسة</span> قبل أن تُقرأ.",
+      "servicesTitle": "مادي.<br><em>رقمي.</em><br>متصل.",
+      "contactTitle": "لنصنع<br>شيئًا<br><em>يستحيل تجاهله.</em>"
+    }
+  }
+}

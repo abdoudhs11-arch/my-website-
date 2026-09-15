@@ -8,7 +8,7 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--black);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+body{background:var(--paper);color:var(--black);font-family:"Space Grotesk",sans-serif;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 button{font:inherit}
 .grain{position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
@@ -55,7 +55,7 @@ nav a:hover:after{width:100%}
 .art-label,.coordinates,.art-bottom{position:absolute;z-index:6;font:8px "DM Mono";letter-spacing:.12em}
 .art-label{top:18px;left:18px}.coordinates{top:18px;right:18px;text-align:right}.crosshair{position:absolute;z-index:7;left:50%;top:50%;transform:translate(-50%,-50%);font-size:20px;color:white}
 .art-bottom{left:18px;right:18px;bottom:18px;display:flex;justify-content:space-between;color:white}
-.hero-scroll{position:absolute;bottom:28px;left:max(35px,calc((100vw - 1440px)/2));font:8px "DM Mono";letter-spacing:.13em;color:var(--grey)}
+.hero-scroll{position:absolute;bottom:28px;left:max(35px,calc((100vw - 1440px)/2));font:8px "DM Mono";letter-spacing:.13em;color:var(--grey);white-space:nowrap}
 .hero-scroll span{display:inline-block;width:35px;height:1px;background:var(--grey);vertical-align:middle;margin-right:10px}
 @keyframes float{to{transform:translate(7%,-5%) scale(1.08)}}
 
@@ -130,6 +130,9 @@ footer>span{font:8px "DM Mono";color:#777;letter-spacing:.1em}
 
 .mobile-nav{display:none}
 @media(max-width:850px){
+ body{font-size:16px;padding-bottom:74px}
+ a,button{min-height:44px}
+ body.menu-open{overflow:hidden}
  .mobile-nav{position:fixed;display:flex;flex-direction:column;justify-content:center;gap:10px;inset:0;background:var(--paper);z-index:15;padding:90px 25px}
  .mobile-nav a{font:600 17vw/.85 "Space Grotesk";letter-spacing:-.08em}
 }
@@ -154,11 +157,54 @@ footer>span{font:8px "DM Mono";color:#777;letter-spacing:.1em}
 /* RTL layout polish */
 html[dir="rtl"] body{font-family:"Noto Sans Arabic","Space Grotesk",sans-serif}
 html[dir="rtl"] .hero-copy,html[dir="rtl"] .about-copy,html[dir="rtl"] .service-heading,html[dir="rtl"] .work-head,html[dir="rtl"] .contact{text-align:right}
-html[dir="rtl"] .hero-art{text-align:left}
-html[dir="rtl"] .kicker{direction:rtl}
 
+.mobile-bottom-nav{display:none}
 @media(max-width:850px){
-  .mobile-nav .mobile-langs{display:flex;gap:8px;margin-top:28px}
-  .mobile-nav .mobile-langs button{border:1px solid var(--line);background:transparent;padding:10px 13px;color:var(--grey);font:500 10px "DM Mono";letter-spacing:.12em}
-  .mobile-nav .mobile-langs button.active{background:var(--black);color:white;border-color:var(--black)}
+  .mobile-bottom-nav{position:fixed;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;left:0;right:0;bottom:0;z-index:30;padding:8px 12px max(8px, env(safe-area-inset-bottom));background:rgba(238,237,232,.96);border-top:1px solid var(--line);backdrop-filter:blur(14px)}
+  .hero{padding-inline:16px;gap:32px}
+  .hero-art{order:1;height:min(82vw,390px);min-height:270px}
+  .hero-copy{order:2}
+  .hero-scroll{display:none}
+  .hero h1{font-size:clamp(48px,18vw,76px);line-height:.88;margin:20px 0 24px;max-width:8ch}
+  .intro{font-size:16px;line-height:1.5;max-width:32ch}
+  .round-arrow{width:100%;height:52px;border-radius:0;flex-direction:row;justify-content:space-between;padding:0 18px;margin-top:24px}
+  .round-arrow span{font-size:11px;margin-top:0}
+  .service-icon{width:44px;height:44px;right:24px;top:24px}
+  .service-icon svg{display:block;width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.5}
+  .service-card p{font-size:16px;line-height:1.5;max-width:30ch}
+  .service-card a{min-height:44px;display:flex;align-items:center;justify-content:space-between}
+  .work-item>p{font-size:10px;line-height:1.5}
+  .label,.kicker{font-size:10px;line-height:1.5}
+  footer{padding-bottom:calc(90px + env(safe-area-inset-bottom))}
+  .mobile-bottom-nav a{display:flex;min-height:56px;flex-direction:column;align-items:center;justify-content:center;gap:4px;color:var(--grey);font:9px "DM Mono",monospace;letter-spacing:.06em;text-transform:uppercase}
+  .mobile-bottom-nav a:hover,.mobile-bottom-nav a:focus-visible{color:var(--blue)}
+  .mobile-bottom-nav span{font-size:8px;color:var(--blue)}
+  .mobile-bottom-nav b{font:inherit;font-weight:500;white-space:nowrap}
+  .mobile-bottom-nav a[aria-current="page"]{color:var(--black)}
 }
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+/* Prevent translated and condensed headlines from colliding across viewports. */
+.hero h1,.about h2,.service-heading h2,.service-card h3,.work h2,.contact h2{
+  max-width:100%;
+  overflow-wrap:break-word;
+  text-wrap:balance;
+}
+.hero h1 br,.about h2 br,.service-heading h2 br,.service-card h3 br,.work h2 br,.contact h2 br{display:block}
+html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3{letter-spacing:0!important;overflow-wrap:anywhere}
+@media(max-width:850px){
+  .hero h1,.about h2,.service-heading h2,.service-card h3,.work h2,.contact h2{letter-spacing:-.045em;line-height:.92}
+  html[dir="rtl"] .hero h1,html[dir="rtl"] .about h2,html[dir="rtl"] .service-heading h2,html[dir="rtl"] .service-card h3,html[dir="rtl"] .work h2,html[dir="rtl"] .contact h2{line-height:1.08}
+}
+
+/* Keep the three service labels readable as a single visual system. */
+.kicker,[data-i18n="kicker"]{white-space:normal;overflow-wrap:anywhere}
+.kicker span[data-i18n="kicker"]{display:inline;width:auto;height:auto;background:none;vertical-align:baseline;margin-right:0}
+@media(max-width:850px){.kicker span[data-i18n="kicker"]{display:inline}}
+.service-card p,.intro,.hero-intro,.about-bottom p,.info-copy,.form-note{overflow-wrap:anywhere}
+.navigation-spacer{display:none}
+
+html[dir="rtl"] .hero-copy,html[dir="rtl"] .about-copy,html[dir="rtl"] .service-heading,html[dir="rtl"] .work-head,html[dir="rtl"] .contact{text-align:right}

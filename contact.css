@@ -6,6 +6,7 @@ body{overflow-x:hidden}
 .contact-title-wrap{grid-column:1/-1;align-self:center;padding-top:55px}
 .contact-title-wrap .kicker{display:flex;align-items:center;gap:10px;font:12px "DM Mono",monospace;letter-spacing:.13em;color:var(--grey);margin-bottom:18px}
 .contact-title-wrap .kicker>span:first-child{width:35px;height:1px;background:var(--contact-blue);flex:none}
+.contact-title-wrap .kicker>span[data-i18n="kicker"]{width:auto;height:auto;background:none;display:block;flex:1;min-width:0;overflow-wrap:normal}
 .contact-title-wrap h1{margin:0;max-width:1000px;font:600 clamp(72px,11.5vw,185px)/.78 "Space Grotesk",sans-serif;letter-spacing:-.075em;text-transform:uppercase}
 .contact-title-wrap h1 em{color:var(--contact-blue);font-style:normal}
 .hero-intro{max-width:570px;margin:45px 0 0;font:400 19px/1.5 "Space Grotesk",sans-serif;color:#404040}
@@ -56,8 +57,8 @@ html[dir=rtl] .header-right,html[dir=rtl] .langs{direction:ltr}
 .contact-hero{min-height:calc(100svh - 90px);padding:100px 25px 65px;display:block}
 .contact-meta{left:25px;right:25px;top:25px;font-size:9px}
 .contact-title-wrap{padding-top:30px}
-.contact-title-wrap .kicker{font-size:9px}
-.contact-title-wrap h1{font-size:18vw;line-height:.82}
+  .contact-title-wrap .kicker{font-size:9px;margin-bottom:32px}
+  .contact-title-wrap h1{font-size:18vw;line-height:.82;margin-top:0}
 .hero-intro{font-size:16px;margin-top:35px}
 .contact-index{right:25px;bottom:25px;font-size:9px}
 .contact-main{display:block;min-height:0}
@@ -107,8 +108,29 @@ html[dir="rtl"] .contact-title-wrap .kicker{font-family:"Noto Sans Arabic","DM M
 
 @media(max-width:850px){
   .contact-hero{padding:125px 25px 65px}
+  .form-wrap input,.form-wrap textarea{font-size:16px}
+  .submit-btn{min-height:64px}
+  .direct-contact>a,.social-row>div a{min-height:44px;display:flex;align-items:center}
+  .social-row>div{gap:8px 14px}
+
   .contact-meta{top:95px}
   .contact-title-wrap{padding-top:10px}
   .contact-title-wrap h1{font-size:14.5vw;line-height:.88;max-width:100%}
   html[dir="rtl"] .contact-title-wrap h1{font-size:13vw;line-height:1.08}
+}
+
+/* Keep long localized headings and labels from overlapping. */
+.contact-title-wrap h1,.contact-info h2{
+  max-width:100%;
+  overflow-wrap:anywhere;
+  text-wrap:balance;
+}
+.contact-title-wrap h1 br,.contact-info h2 br{display:block}
+.contact-title-wrap h1 span,.contact-title-wrap h1 em,.contact-info h2 span,.contact-info h2 em{display:inline}
+html[dir="rtl"] .contact-title-wrap h1,html[dir="rtl"] .contact-info h2{letter-spacing:0!important;line-height:1.08}
+.contact-meta,.contact-index,.form-top,.contact-bottom{overflow-wrap:anywhere}
+@media(max-width:850px){
+  .contact-title-wrap h1{line-height:.95;letter-spacing:-.045em}
+  .contact-info h2{line-height:.98;letter-spacing:-.04em}
+  html[dir="rtl"] .contact-title-wrap h1,html[dir="rtl"] .contact-info h2{line-height:1.1;letter-spacing:0!important}
 }
