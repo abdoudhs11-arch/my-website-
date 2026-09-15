@@ -56,8 +56,8 @@ html[dir=rtl] .header-right,html[dir=rtl] .langs{direction:ltr}
 .contact-hero{min-height:calc(100svh - 90px);padding:100px 25px 65px;display:block}
 .contact-meta{left:25px;right:25px;top:25px;font-size:9px}
 .contact-title-wrap{padding-top:30px}
-.contact-title-wrap .kicker{font-size:9px}
-.contact-title-wrap h1{font-size:18vw;line-height:.82}
+  .contact-title-wrap .kicker{font-size:9px;margin-bottom:32px}
+  .contact-title-wrap h1{font-size:18vw;line-height:.82;margin-top:0}
 .hero-intro{font-size:16px;margin-top:35px}
 .contact-index{right:25px;bottom:25px;font-size:9px}
 .contact-main{display:block;min-height:0}
