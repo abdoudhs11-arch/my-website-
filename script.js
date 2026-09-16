@@ -197,8 +197,10 @@ portfolioCards.forEach((card,index)=>{
 });
 const filterStatus=document.createElement('p'); filterStatus.className='filter-status'; filterStatus.setAttribute('aria-live','polite'); document.querySelector('.portfolio')?.append(filterStatus);
 const emptyState=document.querySelector('.empty-state');
-const workPage=document.querySelector('.work-page');
-const applyWorkLayout=filter=>{
+  const workPage=document.querySelector('.work-page');
+  const disciplines=[['01','BRANDING','Identity systems, logos & visual language.','branding-visual'],['02','SIGNAGE','Signs, wayfinding & environmental graphics.','signage-visual'],['03','DIGITAL','Websites, interfaces & digital experiences.','digital-visual'],['04','SPATIAL','Environments, interiors & installations.','spatial-visual'],['05','FILM + PHOTO','Photography, motion & visual direction.','film-visual'],['06','PRINT','Posters, editorial & printed matter.','print-visual'],['07','EVENTS','Event identities, campaigns & experiences.','events-visual']];
+  if(workPage){const portfolio=workPage.querySelector('.portfolio');if(portfolio){portfolio.innerHTML=`<div class="showcase-intro"><p class="kicker"><span></span>WHAT WE MAKE</p><p>Seven disciplines. One connected studio.</p></div><div class="discipline-showcase">${disciplines.map(([number,title,copy,visual])=>`<article class="discipline-block ${visual}"><div class="discipline-visual" aria-hidden="true"><div class="visual-core"></div><span class="visual-mark">${number}</span><span class="visual-caption">SIGNATRIX / 2026</span></div><div class="discipline-copy"><span>${number}</span><h2>${title}</h2><p>${copy}</p><a href="contact.html#project" class="text-link">START A PROJECT ↗</a></div></article>`).join('')}</div>`;}}
+  const applyWorkLayout=filter=>{
   if(workPage) workPage.dataset.workFilter=filter;
 };
 applyWorkLayout('all');
