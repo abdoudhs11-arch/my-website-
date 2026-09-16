@@ -124,6 +124,7 @@ footer{background:var(--black);color:white;padding:70px max(35px,calc((100vw - 1
 .footer-column a,.footer-column span{color:#aaa;transition:color .2s}
 .footer-column a:hover,.footer-column a:focus-visible{color:white}
 .footer-contact span:last-child{margin-top:8px;color:#666}
+.footer-contact a[href^="https://"]{color:var(--blue)}
 .footer-bottom{grid-column:1/-1;display:flex;justify-content:space-between;border-top:1px solid #292929;padding-top:18px;margin-top:25px;color:#666;font:9px "DM Mono";letter-spacing:.08em;text-transform:uppercase}
 .footer-bottom span:last-child{display:flex;gap:20px}
 .footer-bottom a{color:#666}
