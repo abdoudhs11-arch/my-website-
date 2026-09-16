@@ -178,8 +178,14 @@ document.querySelectorAll('.motion-pop, .motion-slide').forEach(element => {
 const filterButtons=document.querySelectorAll('[data-filter]');
 const portfolioCards=document.querySelectorAll('.portfolio-card');
 const emptyState=document.querySelector('.empty-state');
+const workPage=document.querySelector('.work-page');
+const applyWorkLayout=filter=>{
+  if(workPage) workPage.dataset.workFilter=filter;
+};
+applyWorkLayout('all');
 filterButtons.forEach(button=>button.addEventListener('click',()=>{
   const filter=button.dataset.filter;
+  applyWorkLayout(filter);
   filterButtons.forEach(item=>item.classList.toggle('active',item===button));
   let visible=0;
   portfolioCards.forEach(card=>{
