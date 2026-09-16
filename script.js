@@ -177,6 +177,21 @@ document.querySelectorAll('.motion-pop, .motion-slide').forEach(element => {
 
 const filterButtons=document.querySelectorAll('[data-filter]');
 const portfolioCards=document.querySelectorAll('.portfolio-card');
+const projectDetails=[
+  {outcome:'A bold exterior system built to be seen after dark.',tags:['Strategy','Fabrication','Installation']},
+  {outcome:'A focused digital experience that turns attention into action.',tags:['UX/UI','Development','Content']},
+  {outcome:'A spatial identity that makes every visitor feel oriented.',tags:['Wayfinding','Environment','Production']},
+  {outcome:'A moving image toolkit designed for launches and campaigns.',tags:['Direction','Photography','Editing']}
+];
+portfolioCards.forEach((card,index)=>{
+  const detail=projectDetails[index];
+  if(!detail)return;
+  const outcome=document.createElement('p'); outcome.className='project-outcome'; outcome.textContent=detail.outcome;
+  const tags=document.createElement('div'); tags.className='project-tags';
+  detail.tags.forEach(tag=>{const item=document.createElement('span');item.textContent=tag;tags.appendChild(item);});
+  card.append(outcome,tags);
+});
+const filterStatus=document.createElement('p'); filterStatus.className='filter-status'; filterStatus.setAttribute('aria-live','polite'); document.querySelector('.portfolio')?.append(filterStatus);
 const emptyState=document.querySelector('.empty-state');
 const workPage=document.querySelector('.work-page');
 const applyWorkLayout=filter=>{
@@ -196,4 +211,6 @@ filterButtons.forEach(button=>button.addEventListener('click',()=>{
     if(matches){visible++; requestAnimationFrame(()=>card.classList.add('is-visible'));}
   });
   if(emptyState) emptyState.hidden=visible>0;
-}));
+  if(filterStatus) filterStatus.textContent=`Showing ${visible} ${visible===1?'project':'projects'} — ${filter==='all'?'all disciplines':filter}`;
+  }));
+if(filterStatus) filterStatus.textContent=`Showing ${portfolioCards.length} projects — all disciplines`;
