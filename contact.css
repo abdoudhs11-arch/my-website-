@@ -102,9 +102,11 @@ html[dir="rtl"] .contact-title-wrap h1{font-family:"Noto Sans Arabic","Space Gro
 html[dir="rtl"] .hero-intro{font-family:"Noto Sans Arabic","Space Grotesk",sans-serif}
 html[dir="rtl"] .contact-title-wrap .kicker{font-family:"Noto Sans Arabic","DM Mono",sans-serif;letter-spacing:0}
 
-.mobile-nav .mobile-langs{display:flex;gap:8px;margin-top:4px}
-.mobile-nav .mobile-langs button{border:1px solid var(--line);background:transparent;padding:10px 13px;color:var(--grey);font:500 10px "DM Mono";letter-spacing:.12em;cursor:pointer}
-.mobile-nav .mobile-langs button.active{background:var(--black);color:white;border-color:var(--black)}
+  .mobile-nav .mobile-langs{display:flex;align-items:center;gap:22px;margin-top:14px}
+  .mobile-nav .mobile-langs button{position:relative;min-height:44px;padding:10px 0;border:0;background:transparent;color:var(--grey);font:500 10px "DM Mono",monospace;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}
+  .mobile-nav .mobile-langs button::after{content:"";position:absolute;left:0;right:0;bottom:4px;height:1px;background:var(--black);transform:scaleX(0);transform-origin:center;transition:transform .2s ease}
+  .mobile-nav .mobile-langs button:hover::after,.mobile-nav .mobile-langs button:focus-visible::after{transform:scaleX(1)}
+  .mobile-nav .mobile-langs button.active{color:var(--black);font-weight:700}
 
 @media(max-width:850px){
   .contact-hero{padding:125px 25px 65px}

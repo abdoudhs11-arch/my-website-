@@ -139,7 +139,7 @@ footer>span{font:8px "DM Mono";color:#777;letter-spacing:.1em}
 }
 
 /* Connected page navigation */
-.mobile-nav .mobile-project{
+  .mobile-nav .mobile-project{
   margin-top:24px;
   padding:16px 18px;
   background:var(--black);
@@ -147,9 +147,45 @@ footer>span{font:8px "DM Mono";color:#777;letter-spacing:.1em}
   font:500 11px "DM Mono",monospace;
   letter-spacing:.12em;
   text-transform:uppercase;
-}
+  }
 
-/* Language switcher */
+  .mobile-nav .mobile-langs{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  margin-top:14px;
+  }
+  .mobile-nav .mobile-langs button{
+  position:relative;
+  min-height:44px;
+  padding:10px 0;
+  border:0;
+  background:transparent;
+  color:var(--grey);
+  font:500 10px "DM Mono",monospace;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  cursor:pointer;
+  }
+  .mobile-nav .mobile-langs button::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:4px;
+  height:1px;
+  background:var(--black);
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .2s ease;
+  }
+  .mobile-nav .mobile-langs button:hover::after,
+  .mobile-nav .mobile-langs button:focus-visible::after{
+  transform:scaleX(1);
+  }
+  .mobile-nav .mobile-langs button.active{color:var(--black);font-weight:700}
+  
+  /* Language switcher */
 .langs{align-items:center}
 .langs button{border:0;background:transparent;color:var(--grey);padding:5px 3px;cursor:pointer;font:500 9px "DM Mono";letter-spacing:.13em;text-transform:uppercase;transition:.2s ease}
 .langs button:hover{color:var(--black)}
