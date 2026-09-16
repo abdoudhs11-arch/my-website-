@@ -64,3 +64,18 @@ menu?.addEventListener('click',()=>{
 
 document.addEventListener('click',e=>{if(e.target.closest('.mobile-nav a')){document.body.classList.remove('menu-open');document.querySelector('.mobile-nav')?.remove()}});
 setLanguage(localStorage.getItem('signatrix-language')||'en');
+
+const filterButtons=document.querySelectorAll('[data-filter]');
+const portfolioCards=document.querySelectorAll('.portfolio-card');
+const emptyState=document.querySelector('.empty-state');
+filterButtons.forEach(button=>button.addEventListener('click',()=>{
+  const filter=button.dataset.filter;
+  filterButtons.forEach(item=>item.classList.toggle('active',item===button));
+  let visible=0;
+  portfolioCards.forEach(card=>{
+    const matches=filter==='all'||card.dataset.category.split(' ').includes(filter);
+    card.hidden=!matches;
+    if(matches) visible++;
+  });
+  if(emptyState) emptyState.hidden=visible>0;
+}));
