@@ -115,8 +115,18 @@ nav a:hover:after{width:100%}
 .contact-circle span{font-size:18px}
 .contact-circle:hover{background:white;color:var(--blue);transform:rotate(12deg)}
 
-footer{background:var(--black);color:white;padding:35px max(35px,calc((100vw - 1440px)/2));display:flex;justify-content:space-between;align-items:center}
-footer>span{font:8px "DM Mono";color:#777;letter-spacing:.1em}
+footer{background:var(--black);color:white;padding:70px max(35px,calc((100vw - 1440px)/2)) 25px;display:grid;grid-template-columns:2fr 1fr 1fr 1.35fr;gap:34px;align-items:start}
+.site-footer .brand{color:white}
+.footer-lead p{max-width:280px;margin:24px 0 0;color:#888;font:12px/1.55 "DM Mono"}
+.footer-column{display:flex;flex-direction:column;gap:10px;font:11px/1.35 "DM Mono"}
+.footer-column>b{margin-bottom:10px;color:var(--blue);font-size:10px;letter-spacing:.12em}
+.footer-column a,.footer-column span{color:#aaa;transition:color .2s}
+.footer-column a:hover,.footer-column a:focus-visible{color:white}
+.footer-contact span:last-child{margin-top:8px;color:#666}
+.footer-bottom{grid-column:1/-1;display:flex;justify-content:space-between;border-top:1px solid #292929;padding-top:18px;margin-top:25px;color:#666;font:9px "DM Mono";letter-spacing:.08em;text-transform:uppercase}
+.footer-bottom span:last-child{display:flex;gap:20px}
+.footer-bottom a{color:#666}
+.footer-bottom a:hover,.footer-bottom a:focus-visible{color:white}
 
 @media(max-width:850px){
  header{width:calc(100% - 36px);height:75px}.desktop-nav,nav,.langs,.project-btn{display:none}.menu{display:block}
@@ -127,7 +137,7 @@ footer>span{font:8px "DM Mono";color:#777;letter-spacing:.1em}
  .services{display:block;padding:140px 18px 90px}.service-heading{padding-bottom:45px}.service-heading h2{font-size:17vw}.service-card{min-height:470px;margin-bottom:2px;padding:28px 25px}.service-card h3{font-size:14vw}
  .work{padding:140px 18px 100px}.work-head{display:block;margin:0 0 45px}.work-head>a{display:inline-block;margin-top:25px}.work-grid{display:block}.work-item{margin-bottom:45px}.wide .work-visual,.work-visual{height:360px}
  .contact{min-height:700px;padding:140px 22px}.contact h2{font-size:17vw}.contact-circle{right:22px;bottom:55px;width:125px;height:125px}
- footer{padding:30px 20px;flex-wrap:wrap;gap:22px}footer .brand{width:100%}
+ footer{padding:52px 20px calc(90px + env(safe-area-inset-bottom));grid-template-columns:1fr 1fr;gap:32px 20px}.footer-lead{grid-column:1/-1}.footer-lead p{max-width:32ch;margin-top:18px}.footer-column{font-size:10px}.footer-bottom{grid-column:1/-1;display:flex;flex-direction:column;gap:14px;margin-top:4px}.footer-bottom span:last-child{gap:16px}
 }
 
 .mobile-nav{display:none}
