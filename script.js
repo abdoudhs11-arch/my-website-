@@ -42,7 +42,7 @@ function translateDetailPage(lang){
   const copy={
     en:{expertise:['EXPERTISE / SIX DISCIPLINES','Everything your<br>brand needs is<br><em>under one roof.</em>','Six disciplines across two workshops, connected by one single point of contact — from the first quote to the final maintenance visit.','READY WHEN YOU ARE','Tell us what<br>you&apos;re building.','Describe your project ↗','We&apos;ll come back to you within 48 hours.'],work:['WORK / SELECTED PIECES','Every project is a<br><em>signed piece</em><br>of work.','From signage and identity to websites and film, delivered locally and nationwide. Explore the work by discipline.']},
     fr:{expertise:['EXPERTISE / SIX DISCIPLINES','Tout ce dont votre<br>marque a besoin est<br><em>réuni au même endroit.</em>','Six disciplines au sein de deux ateliers, réunies par un interlocuteur unique — du premier devis à la dernière visite de maintenance.','PRÊTS QUAND VOUS L’ÊTES','Parlez-nous de ce<br>que vous construisez.','Décrire votre projet ↗','Nous vous répondrons sous 48 heures.'],work:['PROJETS / SÉLECTION','Chaque projet est une<br><em>pièce signée</em><br>à part entière.','De la signalétique à l’identité, des sites web au film, livrés localement et partout en Algérie. Explorez nos projets par discipline.']},
-    ar:{expertise:['خدماتنا / ستة مجالات','كل ما تحتاجه<br>علامتك موجود<br><em>تحت سقف واحد.</em>','ستة مجالات ضمن ورشتين، يجمعها تواصل واحد — من العرض الأول إلى آخر زيارة صيانة.','نحن جاهزون','أخبرنا بما<br>تعمل عليه.','صف مشروعك ↗','سنعود إليك خلال 48 ساعة.'],work:['الأعمال / مختارات','كل مشروع هو<br><em>قطعة موقعة</em><br>من العمل.','من اللافتات والهوية إلى المواقع والأفلام، ننفذ أعمالنا محليًا وعلى نطاق واسع. استكشف الأعمال حسب المجال.']}
+    ar:{expertise:['خدماتنا / ستة مجالات','كل ما تحتاجه<br>علامتك موجود<br><em>تحت سقف واحد.</em>','ستة مجالات ضمن ورشتين، يجمع��ا تواصل واحد — من العرض الأول إلى آخر زيارة صيانة.','نحن جاهزون','أخبرنا بما<br>تعمل عليه.','صف مشروعك ↗','سنعود إليك خلال 48 ساعة.'],work:['الأعمال / مختارات','كل مشروع هو<br><em>قطعة موقعة</em><br>من العمل.','من اللافتات والهوية إلى المواقع والأفلام، ننفذ أعمالنا محليًا وعلى نطاق واسع. استكشف الأعمال حسب المجال.']}
   }[lang][page];
   document.querySelectorAll('header nav a').forEach((link,index)=>{const labels=lang==='fr'?['Agence','Expertise','Réalisations','Contact']:lang==='ar'?['الوكالة','خدماتنا','أعمالنا','تواصل معنا']:['Agency','Expertise','Work','Contact'];if(labels[index])link.textContent=labels[index];});
   const startButton=document.querySelector('header .project-btn');if(startButton)startButton.innerHTML=lang==='fr'?'Démarrer un projet <i>↗</i>':lang==='ar'?'ابدأ مشروعًا <i>↗</i>':'Start a project <i>↗</i>';
@@ -184,7 +184,7 @@ const projectDetails=[
   {outcome:'A moving image toolkit designed for launches and campaigns.',tags:['Direction','Photography','Editing']}
 ];
 portfolioCards.forEach((card,index)=>{
-  card.querySelector('.portfolio-media, a[href="#"]')?.addEventListener('click',event=>{
+  card.addEventListener('click',event=>{
     event.preventDefault();
     event.stopPropagation();
   });
