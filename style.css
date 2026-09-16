@@ -53,7 +53,7 @@ nav a:hover:after{width:100%}
 .ring-2{width:65%;aspect-ratio:1;left:17%;top:17%;transform:rotate(-40deg)}
   .ring-3{width:34%;aspect-ratio:1;left:33%;top:33%;transform-origin:var(--touch-x,50%) var(--touch-y,50%);touch-action:none}
   @keyframes ring-touch-deform{0%{transform:scale(1);border-radius:50%}45%{transform:scale(1.08,.92);border-radius:48% 52% 44% 56% / 54% 46% 55% 45%}100%{transform:scale(1);border-radius:50%}}
-  .ring-3.is-touching{animation:ring-touch-deform .2s ease-out both}
+  .ring-3.is-touching{animation:ring-touch-deform .3s ease-out both}
 
 .giant-s{position:absolute;z-index:4;right:-4%;bottom:-15%;font:700 42vw/.7 "Space Grotesk";letter-spacing:-.15em;color:rgba(255,255,255,.16)}
 .art-label,.coordinates,.art-bottom{position:absolute;z-index:6;font:8px "DM Mono";letter-spacing:.12em}

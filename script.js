@@ -74,7 +74,7 @@ if(touchRing){
     touchRing.classList.remove('is-touching');
     void touchRing.offsetWidth;
     touchRing.classList.add('is-touching');
-    window.setTimeout(()=>touchRing.classList.remove('is-touching'),200);
+    window.setTimeout(()=>touchRing.classList.remove('is-touching'),300);
   });
 }
 
