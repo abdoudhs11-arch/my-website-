@@ -254,6 +254,14 @@ html[dir="rtl"] .hero-copy,html[dir="rtl"] .about-copy,html[dir="rtl"] .service-
 .work-item.is-visible:nth-child(3){animation-delay:.16s}
 .contact h2.is-visible{animation-delay:.1s}
 
+@media(max-width:850px){
+  /* Keep the same restrained pop and slide language on the primary mobile surface. */
+  .motion-pop.is-visible{animation-duration:.68s}
+  .motion-slide.is-visible{animation-duration:.6s}
+  .hero-copy.is-visible,.hero-art.is-visible,.about-copy.is-visible,.service-card.is-visible,.work-item.is-visible{will-change:transform,opacity}
+  .service-card.is-visible:nth-of-type(3),.service-card.is-visible:nth-of-type(4),.work-item.is-visible:nth-child(2),.work-item.is-visible:nth-child(3){animation-delay:.04s}
+}
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .motion-pop,.motion-slide{opacity:1!important;transform:none!important}
