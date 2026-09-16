@@ -43,10 +43,10 @@ body{overflow-x:hidden}
 .form-note{color:#666;max-width:500px;font:11px/1.5 "DM Mono",monospace;margin:18px 0 0}
 .form-status{min-height:20px;margin:14px 0 0;color:var(--contact-blue);font:12px "DM Mono",monospace}
 
-.contact-bottom{padding:28px 45px 34px;display:grid;grid-template-columns:1fr auto;gap:12px 30px;font:10px "DM Mono",monospace;letter-spacing:.11em;color:var(--grey)}
-.bottom-line{grid-column:1/-1;height:1px;background:var(--contact-line)}
-.contact-bottom a{color:var(--black);text-decoration:none}
-.contact-bottom a:hover{color:var(--contact-blue)}
+.contact-bottom{padding:28px 45px 34px;display:grid;grid-template-columns:1fr auto;gap:12px 30px;background:var(--black);font:10px "DM Mono",monospace;letter-spacing:.11em;color:white}
+  .bottom-line{grid-column:1/-1;height:1px;background:rgba(255,255,255,.32)}
+  .contact-bottom a{color:white;text-decoration:none}
+  .contact-bottom a:hover{color:var(--blue)}
 
 html[dir=rtl] .contact-title-wrap,html[dir=rtl] .contact-info,html[dir=rtl] .form-wrap{text-align:right}
 html[dir=rtl] .contact-index{left:45px;right:auto;align-items:flex-start}
@@ -71,7 +71,7 @@ html[dir=rtl] .header-right,html[dir=rtl] .langs{direction:ltr}
   .form-wrap input,.form-wrap textarea{font-size:17px}
   .need-options{gap:8px}.need-options label span{padding:12px 14px;font-size:15px!important}.mini-map{height:125px}
 
-.contact-bottom{padding:25px;grid-template-columns:1fr}
+.contact-bottom{padding:25px;grid-template-columns:1fr;background:var(--black);color:white}
 html[dir=rtl] .contact-info{border-left:0;border-bottom:1px solid rgba(255,255,255,.16)}
 html[dir=rtl] .contact-index{left:25px}
 }
