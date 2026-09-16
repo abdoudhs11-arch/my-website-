@@ -184,6 +184,10 @@ const projectDetails=[
   {outcome:'A moving image toolkit designed for launches and campaigns.',tags:['Direction','Photography','Editing']}
 ];
 portfolioCards.forEach((card,index)=>{
+  card.querySelector('.portfolio-media')?.addEventListener('click',event=>{
+    event.preventDefault();
+    event.stopPropagation();
+  });
   const detail=projectDetails[index];
   if(!detail)return;
   const outcome=document.createElement('p'); outcome.className='project-outcome'; outcome.textContent=detail.outcome;
