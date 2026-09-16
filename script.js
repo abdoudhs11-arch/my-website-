@@ -92,7 +92,20 @@ const motionTargets = [
   ['.about-copy', 'motion-pop'],
   ['.service-card', 'motion-pop'],
   ['.work-item', 'motion-pop'],
-  ['.contact h2', 'motion-slide']
+  ['.contact h2', 'motion-slide'],
+  ['.page-hero .kicker, .page-hero h1', 'motion-slide'],
+  ['.page-hero .page-intro', 'motion-pop'],
+  ['.expertise-item', 'motion-pop'],
+  ['.detail-callout', 'motion-pop'],
+  ['.filter-bar', 'motion-slide'],
+  ['.portfolio-card', 'motion-pop'],
+  ['.empty-state', 'motion-slide'],
+  ['.case-hero .kicker, .case-hero h1, .case-hook', 'motion-slide'],
+  ['.case-facts', 'motion-pop'],
+  ['.case-narrative article', 'motion-pop'],
+  ['.case-gallery', 'motion-pop'],
+  ['.next-project', 'motion-slide'],
+  ['.site-footer', 'motion-pop']
 ];
 
 motionTargets.forEach(([selector, motionClass]) => {
