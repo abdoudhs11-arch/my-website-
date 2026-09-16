@@ -9,7 +9,7 @@ const translations = {
     signageTitle:'Signage<br><i>& Fit-out</i>', signageCopy:'Exterior identities, illuminated letters, interior branding, 3D signage and complete branded spaces.',
     digitalTitle:'Communication<br><i>& Digital</i>', digitalCopy:'Brand identity, art direction, campaigns, social content, websites and digital experiences.',
     exploreField:'EXPLORE FIELD', selectedWork:'SELECTED WORK', workTitle:'Built to be<br><em>noticed.</em>', viewWork:'VIEW ALL WORK ↗',
-    haveProject:'HAVE A PROJECT?', contactTitle:"LET'S MAKE<br>SOMETHING<br><em>IMPOSSIBLE TO IGNORE.</em>", startCircle:'START<br>A PROJECT'
+    haveProject:'HAVE A PROJECT?', contactTitle:"LET'S MAKE<br>SOMETHING<br><em>IMPOSSIBLE TO IGNORE.</em>", startCircle:'START<br>A PROJECT', artLabel:'SIGNATURE<br>STUDY — 001', identityMotion:'IDENTITY IN MOTION', exploreField:'EXPLORE FIELD', viewAllWork:'VIEW ALL WORK ↗', visualIdentity:'VISUAL IDENTITY + SIGNAGE', digitalExperience:'DIGITAL EXPERIENCE', spatialIdentity:'SPATIAL IDENTITY', noFilter:'NO<br>FILTER', formFeeling:'FORM<br>FOLLOWS<br>FEELING', enterIdentity:'ENTER<br>THE<br>IDENTITY', footerBaseline:'360° communication and signage agency based in Algiers. We give ambitious brands a distinct identity.', address:'Algiers, Algeria', hours:'Sun–Thu / 09:00–18:00', legal:'Legal notice', privacy:'Privacy', aboutUs:'About us', brandingDesign:'Branding & design', digitalWeb:'Digital & web', allServices:'All services ↗'
   },
   fr: {
     agency:'Agence', expertise:'Expertise', work:'Réalisations', contact:'Contact', startProject:'Démarrer un projet',
@@ -21,7 +21,7 @@ const translations = {
     signageTitle:'Signalétique<br><i>& Agencement</i>', signageCopy:'Identités extérieures, lettres lumineuses, branding intérieur, enseignes 3D et espaces entièrement marqués.',
     digitalTitle:'Communication<br><i>& Digital</i>', digitalCopy:'Identité de marque, direction artistique, campagnes, contenu social, sites web et expériences digitales.',
     exploreField:'EXPLORER', selectedWork:'PROJETS SÉLECTIONNÉS', workTitle:'Conçu pour être<br><em>remarqué.</em>', viewWork:'VOIR LES PROJETS ↗',
-    haveProject:'UN PROJET ?', contactTitle:'CRÉONS<br><span>QUELQUE CHOSE</span><br><em>D’IMPOSSIBLE À IGNORER.</em>', startCircle:'DÉMARRER<br>UN PROJET'
+    haveProject:'UN PROJET ?', contactTitle:'CRÉONS<br><span>QUELQUE CHOSE</span><br><em>D’IMPOSSIBLE À IGNORER.</em>', startCircle:'DÉMARRER<br>UN PROJET', artLabel:'ÉTUDE DE<br>SIGNATURE — 001', identityMotion:'IDENTITÉ EN MOUVEMENT', exploreField:'EXPLORER', viewAllWork:'VOIR LES PROJETS ↗', visualIdentity:'IDENTITÉ VISUELLE + SIGNALÉTIQUE', digitalExperience:'EXPÉRIENCE DIGITALE', spatialIdentity:'IDENTITÉ SPATIALE', noFilter:'SANS<br>FILTRE', formFeeling:'LA FORME<br>SUIT<br>L’ÉMOTION', enterIdentity:'ENTRER<br>DANS<br>L’IDENTITÉ', footerBaseline:'Agence de communication et de signalétique à 360° basée à Alger. Nous donnons aux marques ambitieuses une identité singulière.', address:'Alger, Algérie', hours:'Dim–Jeu / 09:00–18:00', legal:'Mentions légales', privacy:'Confidentialité', aboutUs:'À propos', brandingDesign:'Branding & design', digitalWeb:'Digital & web', allServices:'Tous les services ↗'
   },
   ar: {
     agency:'الوكالة', expertise:'خدماتنا', work:'أعمالنا', contact:'تواصل معنا', startProject:'ابدأ مشروعًا',
@@ -33,7 +33,7 @@ const translations = {
     signageTitle:'اللافتات<br><i>وتجهيز المساحات</i>', signageCopy:'هويات خارجية، حروف مضيئة، هوية داخلية، لافتات ثلاثية الأبعاد ومساحات تحمل العلامة بالكامل.',
     digitalTitle:'التواصل<br><i>والرقمي</i>', digitalCopy:'هوية العلامة، التوجيه الفني، الحملات، محتوى التواصل، المواقع والتجارب الرقمية.',
     exploreField:'اكتشف المجال', selectedWork:'أعمال مختارة', workTitle:'صُمّم ليكون<br><em>ملحوظًا.</em>', viewWork:'شاهد الأعمال ↗',
-    haveProject:'لديك مشروع؟', contactTitle:'لنصنع<br>شيئًا<br><em>يستحيل تجاهله.</em>', startCircle:'ابدأ<br>مشروعًا'
+    haveProject:'لديك مشروع؟', contactTitle:'لنصنع<br>شيئًا<br><em>يستحيل تجاهله.</em>', startCircle:'ابدأ<br>مشروعًا', artLabel:'دراسة<br>البصمة — 001', identityMotion:'الهوية في حركة', exploreField:'اكتشف المجال', viewAllWork:'شاهد كل الأعمال ↗', visualIdentity:'هوية بصرية + لافتات', digitalExperience:'تجربة رقمية', spatialIdentity:'هوية مكانية', noFilter:'بدون<br>فلتر', formFeeling:'الشكل<br>يتبع<br>الإحساس', enterIdentity:'ادخل<br>إلى<br>الهوية', footerBaseline:'وكالة متكاملة للتواصل واللافتات مقرها الجزائر. نمنح العلامات الطموحة هوية مميزة.', address:'الجزائر، الجزائر', hours:'الأحد–الخميس / 09:00–18:00', legal:'إشعار قانوني', privacy:'الخصوصية', aboutUs:'من نحن', brandingDesign:'الهوية والتصميم', digitalWeb:'الرقمي والويب', allServices:'كل الخدمات ↗'
   }
 };
 
@@ -45,6 +45,27 @@ function setLanguage(lang){
   document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(t[k]!==undefined)el.textContent=t[k]});
   document.querySelectorAll('[data-i18n-html]').forEach(el=>{const k=el.dataset.i18nHtml;if(t[k]!==undefined)el.innerHTML=t[k]});
   document.querySelectorAll('.langs button').forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+
+  document.querySelectorAll('.site-footer').forEach(footer=>{
+    footer.querySelector('.footer-lead p')?.replaceChildren(document.createTextNode(t.footerBaseline||''));
+    const columns=footer.querySelectorAll('.footer-column');
+    if(columns[0]) columns[0].querySelector('b').textContent=t.expertise;
+    if(columns[1]) columns[1].querySelector('b').textContent=t.agency;
+    if(columns[2]){
+      columns[2].querySelector('b').textContent=t.contact;
+      const spans=columns[2].querySelectorAll('span');
+      if(spans[0]) spans[0].textContent=t.address;
+      if(spans[1]) spans[1].textContent=t.hours;
+    }
+    const legal=footer.querySelectorAll('.footer-bottom a');
+    if(legal[0]) legal[0].textContent=t.legal;
+    if(legal[1]) legal[1].textContent=t.privacy;
+  });
+  document.querySelectorAll('.mobile-bottom-nav a').forEach((link,index)=>{
+    const labels=[t.agency,t.expertise,t.work,t.contact];
+    const label=link.querySelector('b');
+    if(label) label.textContent=labels[index];
+  });
   localStorage.setItem('signatrix-language',lang);
 }
 
