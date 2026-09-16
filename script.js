@@ -185,7 +185,9 @@ filterButtons.forEach(button=>button.addEventListener('click',()=>{
   portfolioCards.forEach(card=>{
     const matches=filter==='all'||card.dataset.category.split(' ').includes(filter);
     card.hidden=!matches;
-    if(matches) visible++;
+    card.setAttribute('aria-hidden',String(!matches));
+    card.classList.remove('is-visible');
+    if(matches){visible++; requestAnimationFrame(()=>card.classList.add('is-visible'));}
   });
   if(emptyState) emptyState.hidden=visible>0;
 }));
