@@ -68,7 +68,9 @@ html[dir=rtl] .header-right,html[dir=rtl] .langs{direction:ltr}
 .contact-info h2{font-size:13vw}
 .direct-contact{margin-top:60px}
 .form-wrap{padding-top:55px}
-.form-wrap input,.form-wrap textarea{font-size:17px}
+  .form-wrap input,.form-wrap textarea{font-size:17px}
+  .need-options{gap:8px}.need-options label span{padding:12px 14px;font-size:15px!important}.mini-map{height:125px}
+
 .contact-bottom{padding:25px;grid-template-columns:1fr}
 html[dir=rtl] .contact-info{border-left:0;border-bottom:1px solid rgba(255,255,255,.16)}
 html[dir=rtl] .contact-index{left:25px}
@@ -145,7 +147,23 @@ html[dir="rtl"] .contact-title-wrap h1,html[dir="rtl"] .contact-info h2{letter-s
 .contact-info .contact-address{display:flex;flex-direction:column;gap:7px;padding:18px 0;border-top:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14)}
 .contact-info .contact-address small{color:var(--blue);font:10px "DM Mono";letter-spacing:.12em}
 .contact-info .contact-address span{font:14px "DM Mono";color:#aaa}
+.contact-info .contact-address .map-link{font:10px "DM Mono";letter-spacing:.1em;color:var(--contact-blue);margin-top:4px}
+.mini-map{height:150px;margin-top:14px;overflow:hidden;border:1px solid rgba(255,255,255,.16);background:#181818}
+.mini-map iframe{width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05) brightness(.72)}
 .contact-info .contact-address{animation-delay:.16s}
+.project-needs{border:0;border-top:1px solid rgba(255,255,255,.18);padding:24px 0 12px;margin:0}
+.project-needs legend{padding:0;color:#777;font:10px "DM Mono";letter-spacing:.13em}
+.need-options{display:flex;flex-wrap:wrap;gap:10px;margin-top:15px}
+.need-options label{border:1px solid #ddd;padding:0!important;display:block!important;animation:none!important}
+.need-options label:has(input:checked){border-color:var(--contact-blue);background:var(--contact-blue);color:white}
+.need-options input{position:absolute;opacity:0;pointer-events:none}
+.need-options label span{display:block;padding:14px 18px;color:#777!important;font:16px "Space Grotesk"!important;cursor:pointer}
+.need-options label:has(input:checked) span{color:white!important}
+.form-wrap select{width:100%;border:1px solid #ddd;background:transparent;color:#777;padding:15px 18px;font:18px "Space Grotesk";outline:0}
+.consent-field{display:flex!important;align-items:flex-start;gap:14px;border:0!important;padding:25px 0 0!important;animation:none!important}
+.consent-field input{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--contact-blue)}
+.consent-field span{color:#777!important;font:15px/1.5 "Space Grotesk"!important}
+
 .contact-info .direct-contact>a:nth-child(2){animation-delay:.12s}.contact-info .social-row{animation-delay:.24s}
 .contact-main .form-top{animation:contact-line .65s ease .3s both}
 .contact-main label{animation:contact-rise .5s ease both}

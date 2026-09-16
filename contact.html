@@ -65,7 +65,7 @@
       <a href="mailto:signatrixcorp@gmail.com"><small>EMAIL</small><span>signatrixcorp@gmail.com ↗</span></a>
   <a href="tel:+213542563357"><small data-i18n="phone">PHONE 01</small><span>+213 542 56 33 57 ↗</span></a>
   <a href="tel:+213549690098"><small data-i18n="phone">PHONE 02</small><span>+213 549 69 00 98 ↗</span></a>
-  <div class="contact-address"><small>ADDRESS</small><span>Tixeraïne, Algiers — Algeria</span></div>
+  <div class="contact-address"><small>ADDRESS</small><span>Tixeraïne, Algiers — Algeria</span><a class="map-link" href="https://maps.app.goo.gl/4gTDsTSzTgyuvFwm9" target="_blank" rel="noopener">OPEN IN MAPS ↗</a><div class="mini-map"><iframe title="Map showing Tixeraïne, Algiers" src="https://www.google.com/maps?q=Tixera%C3%AFne%2C%20Algiers%2C%20Algeria&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
   <div class="social-row">
         <small data-i18n="social">SOCIAL</small>
         <div>
@@ -82,7 +82,10 @@
       <label><span data-i18n="name">NAME</span><input type="text" name="name" placeholder="Your name" data-placeholder="namePlaceholder" required></label>
       <label><span data-i18n="email">EMAIL</span><input type="email" name="email" placeholder="you@company.com" data-placeholder="emailPlaceholder" required></label>
       <label><span data-i18n="company">COMPANY</span><input type="text" name="company" placeholder="Company / brand" data-placeholder="companyPlaceholder" required></label>
-      <label class="message-field"><span data-i18n="message">MESSAGE</span><textarea name="message" rows="5" placeholder="Tell us about the project..." data-placeholder="messagePlaceholder" required></textarea></label>
+      <fieldset class="project-needs"><legend>WHAT YOU NEED — SELECT ANY THAT APPLY</legend><div class="need-options"><label><input type="checkbox" name="needs" value="Signage & signs"><span>Signage & signs</span></label><label><input type="checkbox" name="needs" value="Branding & identity"><span>Branding & identity</span></label><label><input type="checkbox" name="needs" value="Website"><span>Website</span></label><label><input type="checkbox" name="needs" value="SEO & social media"><span>SEO & social media</span></label><label><input type="checkbox" name="needs" value="Film & photo"><span>Film & photo</span></label><label><input type="checkbox" name="needs" value="Print"><span>Print</span></label></div></fieldset>
+      <label class="message-field"><span>DESCRIBE YOUR PROJECT</span><textarea name="message" rows="5" placeholder="Type of project, location, target date." required></textarea></label>
+      <label><span>ESTIMATED BUDGET</span><select name="budget"><option>Under 200,000 DA</option><option>200,000–500,000 DA</option><option>500,000–1,000,000 DA</option><option>Over 1,000,000 DA</option></select></label>
+      <label class="consent-field"><input type="checkbox" name="consent" required><span>I agree that Signatrix may keep this information to process my enquiry, in line with the privacy policy.</span></label>
       <button class="submit-btn" type="submit"><span data-i18n="send">SEND INQUIRY</span><b>↗</b></button>
       <p class="form-note" data-i18n="formNote">By sending this message, you are starting a conversation — not filling out a corporate form.</p>
       <p class="form-status" id="formStatus" aria-live="polite"></p>
