@@ -63,7 +63,7 @@ function translateDetailPage(lang){
     const labels=lang==='fr'?['Tous','Signalétique','Branding','Digital','Film & Photo','Print','Événements']:lang==='ar'?['الكل','لافتات','هوية','رقمي','فيلم وصور','طباعة','فعاليات']:['All','Signage','Branding','Digital','Film & Photo','Print','Events'];
     document.querySelectorAll('.filter-bar button').forEach((button,index)=>button.textContent=labels[index]);
     document.querySelector('.filter-bar')?.setAttribute('aria-label',lang==='fr'?'Filtrer les projets':lang==='ar'?'تصفية الأعمال':'Filter projects');
-    const cards=lang==='fr'?[['01 / BRANDING + SIGNALÉTIQUE','SANS<br>FILTRE','NÉON / ALGER'],['02 / DIGITAL','LA FORME<br>SUIT<br>L’ÉMOTION','FORME / NATIONAL'],['03 / ESPACE','ENTRER<br>DANS<br>L’IDENTITÉ','ESPACE / ORAN'],['04 / FILM + PHOTO','DANS<br>LE<br>CADRE','STUDIO / ALGER']]:lang==='ar'?[['01 / هوية + لافتات','بدون<br>فلتر','نيون / الجزائر'],['02 / رقمي','الشكل<br>يتبع<br>الإحساس','فورم / وطني'],['03 / مكاني','ادخل<br>إلى<br>الهوية','المكان / وهران'],['04 / فيلم + صور','داخل<br>الإطار','استوديو / الجزائر']]:[['01 / BRANDING + SIGNAGE','NO<br>FILTER','NEON / ALGIERS'],['02 / DIGITAL','FORM<br>FOLLOWS<br>FEELING','FORM / NATIONWIDE'],['03 / SPATIAL','ENTER<br>THE<br>IDENTITY','SPACE / ORAN'],['04 / FILM + PHOTO','IN<br>THE<br>FRAME','STUDIO / ALGIERS']];
+    const cards=lang==='fr'?[['01 / BRANDING + SIGNALÉTIQUE','SANS<br>FILTRE','NÉON / ALGER'],['02 / DIGITAL','LA FORME<br>SUIT<br>L’ÉMOTION','FORME / NATIONAL'],['03 / ESPACE','ENTRER<br>DANS<br>L’IDENTITÉ','ESPACE / ORAN'],['04 / FILM + PHOTO','DANS<br>LE<br>CADRE','STUDIO / ALGER']]:lang==='ar'?[['01 / هوية + لافتات','بدون<br>فلتر','نيون / الجزائر'],['02 / رقمي','الشكل<br>يتبع<br>الإحساس','فورم / وطني'],['03 / مكاني','ادخل<br>إلى<br>الهوية','المكان / وهران'],['04 / فيلم + صور','داخل<br>الإطار','استوديو / الجزائر']]:[['01 / SIGNAGE + FIT-OUT','MAKE<br>YOUR<br>MARK','IDENTITY / ALGIERS'],['02 / COMMUNICATION + DIGITAL','CLICK<br>WITH<br>INTENT','DIGITAL / NATIONWIDE'],['03 / BRANDING + SPACE','STEP<br>INTO<br>THE BRAND','ENVIRONMENT / ORAN'],['04 / FILM + PHOTOGRAPHY','MOVE<br>THE<br>STORY','PRODUCTION / ALGIERS']];
     document.querySelectorAll('.portfolio-card').forEach((card,index)=>{const data=cards[index];if(!data)return;card.querySelector('span').textContent=data[0];card.querySelector('strong').innerHTML=data[1];card.querySelector('small').textContent=data[2];});
     const empty=document.querySelector('.empty-state');if(empty)empty.textContent=lang==='fr'?"Aucun projet signé dans cette discipline pour le moment.":lang==='ar'?'لا توجد أعمال موقعة في هذا المجال بعد.':'No signed pieces in this discipline yet.';
   }
@@ -155,6 +155,20 @@ const motionObserver = 'IntersectionObserver' in window
     }, { threshold: 0.14 })
   : null;
 
+document.querySelectorAll('.service-card[data-href]').forEach(card => {
+  const goToExpertise = event => {
+    if (event.target.closest('a')) return;
+    window.location.href = card.dataset.href;
+  };
+  card.addEventListener('click', goToExpertise);
+  card.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      goToExpertise(event);
+    }
+  });
+});
+
 document.querySelectorAll('.motion-pop, .motion-slide').forEach(element => {
   if (motionObserver) motionObserver.observe(element);
   else element.classList.add('is-visible');
@@ -164,14 +178,22 @@ document.querySelectorAll('.motion-pop, .motion-slide').forEach(element => {
 const filterButtons=document.querySelectorAll('[data-filter]');
 const portfolioCards=document.querySelectorAll('.portfolio-card');
 const emptyState=document.querySelector('.empty-state');
+const workPage=document.querySelector('.work-page');
+const applyWorkLayout=filter=>{
+  if(workPage) workPage.dataset.workFilter=filter;
+};
+applyWorkLayout('all');
 filterButtons.forEach(button=>button.addEventListener('click',()=>{
   const filter=button.dataset.filter;
+  applyWorkLayout(filter);
   filterButtons.forEach(item=>item.classList.toggle('active',item===button));
   let visible=0;
   portfolioCards.forEach(card=>{
     const matches=filter==='all'||card.dataset.category.split(' ').includes(filter);
     card.hidden=!matches;
-    if(matches) visible++;
+    card.setAttribute('aria-hidden',String(!matches));
+    card.classList.remove('is-visible');
+    if(matches){visible++; requestAnimationFrame(()=>card.classList.add('is-visible'));}
   });
   if(emptyState) emptyState.hidden=visible>0;
 }));
