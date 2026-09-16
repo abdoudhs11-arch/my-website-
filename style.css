@@ -40,8 +40,8 @@ nav a:hover:after{width:100%}
 .hero h1 em{font-style:normal;color:var(--blue);font-weight:400}
 .intro{font-size:16px;line-height:1.5;max-width:390px;color:#5b5c58}
 .intro strong{color:var(--black)}
-.round-arrow{margin-top:38px;width:105px;height:105px;border:1px solid var(--black);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font:9px "DM Mono";letter-spacing:.08em;transition:.35s}
-.round-arrow span{font-size:18px;margin-top:8px}
+.round-arrow{margin-top:38px;width:105px;height:105px;border:1px solid var(--black);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font:8px "DM Mono";letter-spacing:.08em;transition:.35s}
+.round-arrow span{font-size:16px;margin-top:8px}
 .round-arrow:hover{background:var(--blue);border-color:var(--blue);color:white;transform:rotate(-12deg)}
 
 .hero-art{height:min(68vh,650px);position:relative;background:#d7d6d0;overflow:hidden}
@@ -57,7 +57,7 @@ nav a:hover:after{width:100%}
 .art-label{top:18px;left:18px}.coordinates{top:18px;right:18px;text-align:right}.crosshair{position:absolute;z-index:7;left:50%;top:50%;transform:translate(-50%,-50%);font-size:20px;color:white}
 .art-bottom{left:18px;right:18px;bottom:18px;display:flex;justify-content:space-between;color:white}
 .hero-scroll{position:absolute;bottom:28px;left:max(35px,calc((100vw - 1440px)/2));font:8px "DM Mono";letter-spacing:.13em;color:var(--grey);white-space:nowrap}
-.hero-scroll span{display:inline-block;width:35px;height:1px;background:var(--grey);vertical-align:middle;margin-right:10px}
+.hero-scroll span:first-child{display:inline-block;width:35px;height:1px;background:var(--grey);vertical-align:middle;margin-right:10px}.hero-scroll span:last-child{display:inline-block;vertical-align:middle}
 @keyframes float{to{transform:translate(7%,-5%) scale(1.08)}}
 
 .about{min-height:780px;padding:150px max(35px,calc((100vw - 1440px)/2));display:flex;align-items:center;position:relative}
@@ -98,7 +98,7 @@ nav a:hover:after{width:100%}
 .work-visual{height:310px;position:relative;overflow:hidden;padding:18px;display:flex;align-items:center;justify-content:center}
 .wide .work-visual{height:680px}
 .work-visual span{position:absolute;top:18px;left:18px;font:8px "DM Mono";z-index:3}
-.work-visual strong{font:600 clamp(38px,6vw,85px)/.8 "Space Grotesk";letter-spacing:-.08em;text-align:center;z-index:2}
+.work-visual strong{font:600 clamp(38px,6vw,85px)/.8 "Space Grotesk";letter-spacing:-.08em;text-align:center;z-index:2}.v2 strong{color:var(--black);-webkit-text-stroke:1px var(--blue)}
 .work-visual i{position:absolute;font-style:normal;font-size:100px;color:rgba(255,255,255,.18)}
 .v1{background:var(--black);color:white}.v1:before{content:"";position:absolute;width:58%;aspect-ratio:1;background:var(--blue);border-radius:50%;box-shadow:0 0 80px rgba(49,92,255,.45)}.v1 i{bottom:-25px;right:5px}
 .v2{background:#d8d7d1}.v2:before{content:"";position:absolute;width:65%;height:160%;background:var(--black);transform:rotate(35deg)}
@@ -139,7 +139,7 @@ footer>span{font:8px "DM Mono";color:#777;letter-spacing:.1em}
 }
 
 /* Connected page navigation */
-.mobile-nav .mobile-project{
+  .mobile-nav .mobile-project{
   margin-top:24px;
   padding:16px 18px;
   background:var(--black);
@@ -147,9 +147,45 @@ footer>span{font:8px "DM Mono";color:#777;letter-spacing:.1em}
   font:500 11px "DM Mono",monospace;
   letter-spacing:.12em;
   text-transform:uppercase;
-}
+  }
 
-/* Language switcher */
+  .mobile-nav .mobile-langs{
+  display:flex;
+  align-items:center;
+  gap:22px;
+  margin-top:14px;
+  }
+  .mobile-nav .mobile-langs button{
+  position:relative;
+  min-height:44px;
+  padding:10px 0;
+  border:0;
+  background:transparent;
+  color:var(--grey);
+  font:500 10px "DM Mono",monospace;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  cursor:pointer;
+  }
+  .mobile-nav .mobile-langs button::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:4px;
+  height:1px;
+  background:var(--black);
+  transform:scaleX(0);
+  transform-origin:center;
+  transition:transform .2s ease;
+  }
+  .mobile-nav .mobile-langs button:hover::after,
+  .mobile-nav .mobile-langs button:focus-visible::after{
+  transform:scaleX(1);
+  }
+  .mobile-nav .mobile-langs button.active{color:var(--black);font-weight:700}
+  
+  /* Language switcher */
 .langs{align-items:center}
 .langs button{border:0;background:transparent;color:var(--grey);padding:5px 3px;cursor:pointer;font:500 9px "DM Mono";letter-spacing:.13em;text-transform:uppercase;transition:.2s ease}
 .langs button:hover{color:var(--black)}
