@@ -63,7 +63,8 @@ nav a:hover:after{width:100%}
 .about{min-height:780px;padding:95px max(35px,calc((100vw - 1440px)/2));display:flex;align-items:center;position:relative}
 .section-no{position:absolute;top:50px;left:max(35px,calc((100vw - 1440px)/2));font:9px "DM Mono";color:var(--blue)}
 .about-copy{margin-left:20%;max-width:1000px}
-.about h2,.work h2{font:600 clamp(55px,7vw,100px)/.9 "Space Grotesk";letter-spacing:-.075em;margin:20px 0 65px}
+ .about h2,.work h2{font:600 clamp(55px,7vw,100px)/.9 "Space Grotesk";letter-spacing:-.075em;margin:20px 0 65px}
+ .about-copy{max-width:1120px}.about-copy h2{font-size:clamp(64px,8vw,116px)}
 .about h2 span{color:var(--blue);font-weight:400}
 .about-bottom{display:grid;grid-template-columns:1fr 1fr;gap:100px;max-width:760px}
 .about-bottom p{max-width:360px;color:#646560;font-size:14px;line-height:1.65}
