@@ -232,8 +232,39 @@ html[dir="rtl"] .hero-copy,html[dir="rtl"] .about-copy,html[dir="rtl"] .service-
   .mobile-bottom-nav a[aria-current="page"]{color:var(--black)}
 }
 
+/* Subtle entrance motion layered over the existing interactions. */
+@keyframes soft-pop-in{
+  0%{opacity:0;transform:translateY(18px) scale(.985)}
+  70%{opacity:1;transform:translateY(-2px) scale(1.002)}
+  100%{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes soft-slide-in{
+  0%{opacity:0;transform:translateX(-22px)}
+  100%{opacity:1;transform:translateX(0)}
+}
+.motion-pop,.motion-slide{opacity:0}
+.motion-pop.is-visible{animation:soft-pop-in .72s cubic-bezier(.22,.8,.25,1) forwards}
+.motion-slide.is-visible{animation:soft-slide-in .62s cubic-bezier(.22,.8,.25,1) forwards}
+.hero-copy.is-visible{animation-delay:.08s}
+.hero-art.is-visible{animation-delay:.16s}
+.about-copy.is-visible{animation-delay:.08s}
+.service-card.is-visible:nth-of-type(3){animation-delay:.06s}
+.service-card.is-visible:nth-of-type(4){animation-delay:.14s}
+.work-item.is-visible:nth-child(2){animation-delay:.08s}
+.work-item.is-visible:nth-child(3){animation-delay:.16s}
+.contact h2.is-visible{animation-delay:.1s}
+
+@media(max-width:850px){
+  /* Keep the same restrained pop and slide language on the primary mobile surface. */
+  .motion-pop.is-visible{animation-duration:.68s}
+  .motion-slide.is-visible{animation-duration:.6s}
+  .hero-copy.is-visible,.hero-art.is-visible,.about-copy.is-visible,.service-card.is-visible,.work-item.is-visible{will-change:transform,opacity}
+  .service-card.is-visible:nth-of-type(3),.service-card.is-visible:nth-of-type(4),.work-item.is-visible:nth-child(2),.work-item.is-visible:nth-child(3){animation-delay:.04s}
+}
+
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .motion-pop,.motion-slide{opacity:1!important;transform:none!important}
 }
 
 /* Prevent translated and condensed headlines from colliding across viewports. */

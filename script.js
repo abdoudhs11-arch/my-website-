@@ -65,6 +65,36 @@ menu?.addEventListener('click',()=>{
 document.addEventListener('click',e=>{if(e.target.closest('.mobile-nav a')){document.body.classList.remove('menu-open');document.querySelector('.mobile-nav')?.remove()}});
 setLanguage(localStorage.getItem('signatrix-language')||'en');
 
+const motionTargets = [
+  ['.hero-copy', 'motion-slide'],
+  ['.hero-art', 'motion-pop'],
+  ['.about-copy', 'motion-pop'],
+  ['.service-card', 'motion-pop'],
+  ['.work-item', 'motion-pop'],
+  ['.contact h2', 'motion-slide']
+];
+
+motionTargets.forEach(([selector, motionClass]) => {
+  document.querySelectorAll(selector).forEach(element => {
+    element.classList.add(motionClass);
+  });
+});
+
+const motionObserver = 'IntersectionObserver' in window
+  ? new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          motionObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 })
+  : null;
+
+document.querySelectorAll('.motion-pop, .motion-slide').forEach(element => {
+  if (motionObserver) motionObserver.observe(element);
+  else element.classList.add('is-visible');
+});
 
 
 const filterButtons=document.querySelectorAll('[data-filter]');
