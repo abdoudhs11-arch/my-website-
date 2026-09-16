@@ -87,42 +87,45 @@ document.addEventListener('click',e=>{if(e.target.closest('.mobile-nav a')){docu
 setLanguage(localStorage.getItem('signatrix-language')||'en');
 
 const motionTargets = [
-  ['.hero-copy', 'motion-slide'], ['.hero-art', 'motion-pop'], ['.about-copy', 'motion-pop'],
-  ['.service-heading', 'motion-slide'], ['.service-card', 'motion-pop'], ['.work-head', 'motion-slide'],
-  ['.work-item', 'motion-pop'], ['.contact h2', 'motion-slide'], ['.contact-circle', 'motion-pop'],
-  ['.page-hero .kicker, .page-hero h1', 'motion-slide'], ['.page-hero .page-intro', 'motion-pop'],
-  ['.expertise-item, .detail-callout, .filter-bar, .portfolio-card, .empty-state', 'motion-pop'],
-  ['.case-hero .kicker, .case-hero h1, .case-hook', 'motion-slide'], ['.case-facts, .case-narrative article, .case-gallery', 'motion-pop'],
-  ['.next-project, .site-footer', 'motion-slide']
+  ['.hero-copy', 'motion-slide'],
+  ['.hero-art', 'motion-pop'],
+  ['.about-copy', 'motion-pop'],
+  ['.service-card', 'motion-pop'],
+  ['.work-item', 'motion-pop'],
+  ['.contact h2', 'motion-slide'],
+  ['.page-hero .kicker, .page-hero h1', 'motion-slide'],
+  ['.page-hero .page-intro', 'motion-pop'],
+  ['.expertise-item', 'motion-pop'],
+  ['.detail-callout', 'motion-pop'],
+  ['.filter-bar', 'motion-slide'],
+  ['.portfolio-card', 'motion-pop'],
+  ['.empty-state', 'motion-slide'],
+  ['.case-hero .kicker, .case-hero h1, .case-hook', 'motion-slide'],
+  ['.case-facts', 'motion-pop'],
+  ['.case-narrative article', 'motion-pop'],
+  ['.case-gallery', 'motion-pop'],
+  ['.next-project', 'motion-slide'],
+  ['.site-footer', 'motion-pop']
 ];
 
-motionTargets.forEach(([selector, motionClass]) => document.querySelectorAll(selector).forEach(element => element.classList.add(motionClass)));
-
-document.querySelectorAll('header, .hero-top, .hero .kicker, .hero-scroll').forEach(element => element.classList.add('mount-fade'));
-document.querySelectorAll('header nav a').forEach((element, index) => element.style.setProperty('--nav-delay', `${index * 60}ms`));
-document.querySelectorAll('.hero-art > *').forEach((element, index) => element.style.setProperty('--badge-delay', `${index * 110 + 500}ms`));
-document.querySelector('.round-arrow')?.classList.add('hero-discover');
-document.querySelector('.hero-scroll span:first-child')?.classList.add('scroll-arrow');
-
-document.querySelectorAll('.motion-pop, .motion-slide').forEach(element => {
-  if ('IntersectionObserver' in window) {
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        observer.unobserve(entry.target);
-      }
-    }, { threshold: 0.22, rootMargin: '0px 0px -10% 0px' });
-    observer.observe(element);
-  } else element.classList.add('is-visible');
+motionTargets.forEach(([selector, motionClass]) => {
+  document.querySelectorAll(selector).forEach(element => {
+    element.classList.add(motionClass);
+  });
 });
 
-if ('IntersectionObserver' in window) {
-  const pulseObserver = new IntersectionObserver(([entry]) => {
-    document.querySelector('.contact-circle')?.classList.toggle('is-idle', entry.isIntersecting);
-  }, { threshold: 0.2 });
-  const contactCircle = document.querySelector('.contact-circle');
-  if (contactCircle) pulseObserver.observe(contactCircle);
-}
+const motionObserver = 'IntersectionObserver' in window
+  ? new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        entry.target.classList.toggle('is-visible', entry.isIntersecting);
+      });
+    }, { threshold: 0.14 })
+  : null;
+
+document.querySelectorAll('.motion-pop, .motion-slide').forEach(element => {
+  if (motionObserver) motionObserver.observe(element);
+  else element.classList.add('is-visible');
+});
 
 
 const filterButtons=document.querySelectorAll('[data-filter]');
