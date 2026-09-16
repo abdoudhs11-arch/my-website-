@@ -150,7 +150,7 @@ html[dir="rtl"] .contact-title-wrap h1,html[dir="rtl"] .contact-info h2{letter-s
 .contact-info .contact-address .map-link{font:10px "DM Mono";letter-spacing:.1em;color:var(--contact-blue);margin-top:4px}
 @keyframes mini-map-in{0%{opacity:0;transform:translateY(18px) scale(.97)}100%{opacity:1;transform:none}}
 .mini-map{display:block;height:150px;margin-top:14px;overflow:hidden;border:1px solid rgba(255,255,255,.16);background:#181818;opacity:0;animation:mini-map-in .75s cubic-bezier(.16,1,.3,1) .3s forwards;transition:transform .35s cubic-bezier(.16,1,.3,1),border-color .35s ease,box-shadow .35s ease;cursor:pointer}
-.mini-map iframe{width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05) brightness(.72);transition:filter .35s ease,transform .5s cubic-bezier(.16,1,.3,1)}
+.mini-map iframe{width:100%;height:100%;border:0;pointer-events:none;filter:grayscale(1) contrast(1.05) brightness(.72);transition:filter .35s ease,transform .5s cubic-bezier(.16,1,.3,1)}
 .mini-map:hover{transform:translateY(-5px) scale(1.015);border-color:var(--contact-blue);box-shadow:0 14px 30px rgba(0,0,0,.22)}
 .mini-map:hover iframe{filter:grayscale(.25) contrast(1.05) brightness(.86);transform:scale(1.05)}
 .custom-budget-field{overflow:hidden;max-height:0;opacity:0;transform:translateY(-8px);transition:max-height .4s ease,opacity .3s ease,transform .4s ease}
