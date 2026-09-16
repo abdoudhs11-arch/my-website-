@@ -63,6 +63,16 @@ menu?.addEventListener('click',()=>{
 });
 
 document.addEventListener('click',e=>{if(e.target.closest('.mobile-nav a')){document.body.classList.remove('menu-open');document.querySelector('.mobile-nav')?.remove()}});
+
+const heroRipple = document.querySelector('.hero-art .ring-3');
+heroRipple?.addEventListener('pointerdown', event => {
+  const bounds = heroRipple.getBoundingClientRect();
+  heroRipple.style.setProperty('--ripple-x', `${((event.clientX - bounds.left) / bounds.width) * 100}%`);
+  heroRipple.style.setProperty('--ripple-y', `${((event.clientY - bounds.top) / bounds.height) * 100}%`);
+  heroRipple.classList.remove('is-rippling');
+  void heroRipple.offsetWidth;
+  heroRipple.classList.add('is-rippling');
+});
 setLanguage(localStorage.getItem('signatrix-language')||'en');
 
 

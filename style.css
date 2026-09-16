@@ -51,7 +51,14 @@ nav a:hover:after{width:100%}
 .ring{position:absolute;border:1px solid rgba(255,255,255,.9);border-radius:50%;z-index:3}
 .ring-1{width:90%;aspect-ratio:1;left:5%;top:6%;transform:rotate(22deg)}
 .ring-2{width:65%;aspect-ratio:1;left:17%;top:17%;transform:rotate(-40deg)}
-.ring-3{width:34%;aspect-ratio:1;left:33%;top:33%;touch-action:none}
+.ring-3{width:34%;aspect-ratio:1;left:33%;top:33%;touch-action:manipulation;transform-origin:var(--ripple-x,50%) var(--ripple-y,50%)}
+.ring-3.is-rippling{animation:hero-ripple .3s cubic-bezier(.2,.8,.3,1)}
+@keyframes hero-ripple{
+  0%{transform:scale(1) skew(0deg,0deg)}
+  35%{transform:scale(1.14,.86) skew(3deg,-3deg)}
+  70%{transform:scale(.94,1.06) skew(-2deg,2deg)}
+  100%{transform:scale(1) skew(0deg,0deg)}
+}
 
 .giant-s{position:absolute;z-index:4;right:-4%;bottom:-15%;font:700 42vw/.7 "Space Grotesk";letter-spacing:-.15em;color:rgba(255,255,255,.16)}
 .art-label,.coordinates,.art-bottom{position:absolute;z-index:6;font:8px "DM Mono";letter-spacing:.12em}
