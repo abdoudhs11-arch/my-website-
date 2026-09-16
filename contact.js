@@ -32,6 +32,19 @@ menu?.addEventListener("click",()=>{
 
 document.addEventListener("click",e=>{if(e.target.closest(".mobile-nav a")){document.body.classList.remove("menu-open");document.querySelector(".mobile-nav")?.remove()}});
 
+const budgetSelect=document.querySelector("#budgetSelect");
+const customBudgetField=document.querySelector("#customBudgetField");
+budgetSelect?.addEventListener("change",()=>{
+  const isCustom=budgetSelect.value==="custom";
+  if(customBudgetField){
+    customBudgetField.hidden=false;
+    requestAnimationFrame(()=>customBudgetField.classList.toggle("is-open",isCustom));
+  }
+  const customInput=customBudgetField?.querySelector("input");
+  if(customInput) customInput.required=isCustom;
+  if(!isCustom && customInput){customInput.required=false;customInput.value="";}
+});
+
 document.querySelector("#contactForm")?.addEventListener("submit",e=>{
  e.preventDefault();
  const lang=localStorage.getItem("signatrix-language")||"en",t=translations[lang],f=new FormData(e.currentTarget);
