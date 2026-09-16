@@ -198,27 +198,9 @@ portfolioCards.forEach((card,index)=>{
 const filterStatus=document.createElement('p'); filterStatus.className='filter-status'; filterStatus.setAttribute('aria-live','polite'); document.querySelector('.portfolio')?.append(filterStatus);
 const emptyState=document.querySelector('.empty-state');
 const workPage=document.querySelector('.work-page');
-const workShowcase={
-  all:[['work-signage-design.png','01 / SIGNAGE + FIT-OUT','MAKE<br>YOUR<br>MARK','Identity / Algiers','A bold exterior system built to be seen after dark.'],['work-digital.png','02 / COMMUNICATION + DIGITAL','CLICK<br>WITH<br>INTENT','Digital / Nationwide','A focused experience that turns attention into action.'],['work-spatial.png','03 / BRANDING + SPACE','STEP<br>INTO<br>THE BRAND','Environment / Oran','A spatial identity that makes every visitor feel oriented.'],['work-film.png','04 / FILM + PHOTOGRAPHY','MOVE<br>THE<br>STORY','Production / Algiers','A moving-image toolkit for launches and campaigns.']],
-  signage:[['work-signage-design.png','01 / EXTERIOR IDENTITY','SEEN<br>AFTER<br>DARK','Signage / Algiers','Illuminated letters, wayfinding and a complete facade system.'],['work-spatial.png','02 / BRANDED SPACE','FIND<br>YOUR<br>WAY','Wayfinding / Oran','Interior graphics that turn movement into recognition.'],['work-digital.png','03 / 3D LETTERING','FORM<br>MEETS<br>LIGHT','Fabrication / Blida','Dimensional signage built for distance and detail.']],
-  branding:[['work-spatial.png','01 / BRAND STRATEGY','A NAME<br>WITH<br>WEIGHT','Identity / Algiers','A visual language that gives every touchpoint a point of view.'],['work-signage-design.png','02 / ART DIRECTION','MAKE IT<br>UNMISTAKABLE','Campaign / Oran','Distinctive systems for brands ready to be remembered.'],['work-film.png','03 / BRAND WORLD','THE<br>FEELING<br>OF IT','Direction / Nationwide','A consistent world across print, space and screen.']],
-  digital:[['work-digital.png','01 / WEBSITE DESIGN','BUILT<br>TO BE<br>USED','UX / Nationwide','Clear interfaces, thoughtful journeys and useful motion.'],['work-film.png','02 / SOCIAL CONTENT','STOP<br>THE<br>SCROLL','Content / Algiers','Campaign assets with a sharp visual point of view.'],['work-spatial.png','03 / DIGITAL SYSTEMS','SIGNAL<br>IN THE<br>NOISE','Product / Oran','Flexible digital tools that keep communication moving.']],
-  film:[['work-film.png','01 / CAMPAIGN FILM','MOVE<br>THE<br>STORY','Film / Algiers','Direction, production and edit for ideas in motion.'],['work-digital.png','02 / PRODUCT IMAGE','SEE IT<br>DIFFERENTLY','Photography / Nationwide','Images designed to make the detail impossible to miss.'],['work-spatial.png','03 / DOCUMENTARY','REAL<br>PEOPLE<br>REAL PLACES','Documentary / Oran','Human stories shaped with patience and precision.']],
-  print:[['work-signage-design.png','01 / EDITORIAL','PAPER<br>WITH<br>PURPOSE','Print / Algiers','Print systems that make the physical experience matter.'],['work-digital.png','02 / CAMPAIGN KIT','OPEN<br>THE<br>CONVERSATION','Campaign / Nationwide','Posters, decks and launch pieces built as one system.'],['work-spatial.png','03 / PACKAGING','HOLD<br>THE<br>IDEA','Packaging / Oran','Tactile details that carry the brand beyond the screen.']],
-  events:[['work-spatial.png','01 / EVENT IDENTITY','ARRIVE<br>IN THE<br>WORLD','Event / Algiers','A complete branded environment from entrance to exit.'],['work-signage-design.png','02 / INSTALLATION','MAKE<br>SPACE<br>FOR IT','Installation / Oran','Physical moments designed to be shared and remembered.'],['work-film.png','03 / LIVE CONTENT','CAPTURE<br>THE<br>ENERGY','Live / Nationwide','Fast, focused content for the moments that matter.']]
+const applyWorkLayout=filter=>{
+  if(workPage) workPage.dataset.workFilter=filter;
 };
-const applyShowcase=filter=>{
-  const items=workShowcase[filter]||workShowcase.all;
-  portfolioCards.forEach((card,index)=>{
-    const item=items[index%items.length];
-    const image=card.querySelector('img');
-    if(image){image.src=`public/${item[0]}`;image.alt=item[1];}
-    const parts=card.querySelectorAll('span,strong,small');
-    if(parts[0])parts[0].textContent=item[1];if(parts[1])parts[1].innerHTML=item[2];if(parts[2])parts[2].textContent=item[3];
-    const outcome=card.querySelector('.project-outcome');if(outcome)outcome.textContent=item[4];
-  });
-};
-const applyWorkLayout=filter=>{if(workPage){workPage.dataset.workFilter=filter;applyShowcase(filter);}};
 applyWorkLayout('all');
 filterButtons.forEach(button=>button.addEventListener('click',()=>{
   const filter=button.dataset.filter;
@@ -226,7 +208,7 @@ filterButtons.forEach(button=>button.addEventListener('click',()=>{
   filterButtons.forEach(item=>item.classList.toggle('active',item===button));
   let visible=0;
   portfolioCards.forEach(card=>{
-    const matches=true;
+    const matches=filter==='all'||card.dataset.category.split(' ').includes(filter);
     card.hidden=!matches;
     card.setAttribute('aria-hidden',String(!matches));
     card.classList.remove('is-visible');
