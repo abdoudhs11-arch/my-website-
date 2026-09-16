@@ -60,7 +60,7 @@ nav a:hover:after{width:100%}
 .hero-scroll span:first-child{display:inline-block;width:35px;height:1px;background:var(--grey);vertical-align:middle;margin-right:10px}.hero-scroll span:last-child{display:inline-block;vertical-align:middle}
 @keyframes float{to{transform:translate(7%,-5%) scale(1.08)}}
 
-.about{min-height:780px;padding:150px max(35px,calc((100vw - 1440px)/2));display:flex;align-items:center;position:relative}
+.about{min-height:780px;padding:95px max(35px,calc((100vw - 1440px)/2));display:flex;align-items:center;position:relative}
 .section-no{position:absolute;top:50px;left:max(35px,calc((100vw - 1440px)/2));font:9px "DM Mono";color:var(--blue)}
 .about-copy{margin-left:20%;max-width:1000px}
 .about h2,.work h2{font:600 clamp(55px,7vw,100px)/.9 "Space Grotesk";letter-spacing:-.075em;margin:20px 0 65px}
@@ -122,7 +122,7 @@ footer>span{font:8px "DM Mono";color:#777;letter-spacing:.1em}
  .hero{display:flex;flex-direction:column;padding:120px 18px 80px;gap:50px;align-items:stretch}
  .hero-top{top:95px;left:18px;right:18px;font-size:7px}.hero-top span:last-child{display:none}
  .hero h1{font-size:20vw;margin:25px 0}.intro{font-size:14px}.hero-art{height:480px}.hero-scroll{display:none}
- .about{min-height:auto;padding:140px 22px 110px}.about-copy{margin:0}.about h2,.work h2{font-size:15vw;margin-bottom:50px}.about-bottom{grid-template-columns:1fr;gap:35px}
+ .about{min-height:auto;padding:88px 22px 72px}.about-copy{margin:0}.about h2,.work h2{font-size:15vw;margin-bottom:50px}.about-bottom{grid-template-columns:1fr;gap:35px}
  .services{display:block;padding:140px 18px 90px}.service-heading{padding-bottom:45px}.service-heading h2{font-size:17vw}.service-card{min-height:470px;margin-bottom:2px;padding:28px 25px}.service-card h3{font-size:14vw}
  .work{padding:140px 18px 100px}.work-head{display:block;margin:0 0 45px}.work-head>a{display:inline-block;margin-top:25px}.work-grid{display:block}.work-item{margin-bottom:45px}.wide .work-visual,.work-visual{height:360px}
  .contact{min-height:700px;padding:140px 22px}.contact h2{font-size:17vw}.contact-circle{right:22px;bottom:55px;width:125px;height:125px}
