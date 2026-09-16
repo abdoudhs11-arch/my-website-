@@ -37,9 +37,42 @@ const translations = {
   }
 };
 
+function translateDetailPage(lang){
+  const page=document.querySelector('.work-page')?'work':'expertise';
+  const copy={
+    en:{expertise:['EXPERTISE / SIX DISCIPLINES','Everything your<br>brand needs is<br><em>under one roof.</em>','Six disciplines across two workshops, connected by one single point of contact — from the first quote to the final maintenance visit.','READY WHEN YOU ARE','Tell us what<br>you&apos;re building.','Describe your project ↗','We&apos;ll come back to you within 48 hours.'],work:['WORK / SELECTED PIECES','Every project is a<br><em>signed piece</em><br>of work.','From signage and identity to websites and film, delivered locally and nationwide. Explore the work by discipline.']},
+    fr:{expertise:['EXPERTISE / SIX DISCIPLINES','Tout ce dont votre<br>marque a besoin est<br><em>réuni au même endroit.</em>','Six disciplines au sein de deux ateliers, réunies par un interlocuteur unique — du premier devis à la dernière visite de maintenance.','PRÊTS QUAND VOUS L’ÊTES','Parlez-nous de ce<br>que vous construisez.','Décrire votre projet ↗','Nous vous répondrons sous 48 heures.'],work:['PROJETS / SÉLECTION','Chaque projet est une<br><em>pièce signée</em><br>à part entière.','De la signalétique à l’identité, des sites web au film, livrés localement et partout en Algérie. Explorez nos projets par discipline.']},
+    ar:{expertise:['خدماتنا / ستة مجالات','كل ما تحتاجه<br>علامتك موجود<br><em>تحت سقف واحد.</em>','ستة مجالات ضمن ورشتين، يجمعها تواصل واحد — من العرض الأول إلى آخر زيارة صيانة.','نحن جاهزون','أخبرنا بما<br>تعمل عليه.','صف مشروعك ↗','سنعود إليك خلال 48 ساعة.'],work:['الأعمال / مختارات','كل مشروع هو<br><em>قطعة موقعة</em><br>من العمل.','من اللافتات والهوية إلى المواقع والأفلام، ننفذ أعمالنا محليًا وعلى نطاق واسع. استكشف الأعمال حسب المجال.']}
+  }[lang][page];
+  document.querySelectorAll('header nav a').forEach((link,index)=>{const labels=lang==='fr'?['Agence','Expertise','Réalisations','Contact']:lang==='ar'?['الوكالة','خدماتنا','أعمالنا','تواصل معنا']:['Agency','Expertise','Work','Contact'];if(labels[index])link.textContent=labels[index];});
+  const startButton=document.querySelector('header .project-btn');if(startButton)startButton.innerHTML=lang==='fr'?'Démarrer un projet <i>↗</i>':lang==='ar'?'ابدأ مشروعًا <i>↗</i>':'Start a project <i>↗</i>';
+  const hero=document.querySelector('.page-hero');
+  if(!hero||!copy)return;
+  hero.querySelector('.kicker').innerHTML=`<span></span>${copy[0]}`;
+  hero.querySelector('h1').innerHTML=copy[1];
+  hero.querySelector('.page-intro').textContent=copy[2];
+  if(page==='expertise'){
+    const callout=document.querySelector('.detail-callout');
+    if(callout){callout.querySelector('.label').textContent=copy[3];callout.querySelector('h2').innerHTML=copy[4];callout.querySelector('.project-btn').innerHTML=copy[5];callout.querySelector('p:last-child').innerHTML=copy[6];}
+  }
+  if(page==='expertise'){
+    const sets={en:[['Signage','& Fit-out','Make the place unmistakably yours.'],['Branding','& Design','Give your presence a point of view.'],['Digital','& Web','Make the digital feel as considered as the physical.'],['Film','& Photography','Put the feeling in motion.'],['Print','','Make the tangible matter.'],['Strategy','& Consulting','Start with the right question.']],fr:[['Signalétique','& Agencement','Rendez le lieu immédiatement identifiable.'],['Branding','& Design','Donnez une direction à votre présence.'],['Digital','& Web','Donnez au digital le même soin qu’au physique.'],['Film','& Photographie','Mettez l’émotion en mouvement.'],['Print','','Donnez de l’importance au tangible.'],['Stratégie','& Conseil','Commencez par la bonne question.']],ar:[['اللافتات','وتجهيز المساحات','اجعل المكان يحمل بصمتك بوضوح.'],['الهوية','والتصميم','امنح حضورك وجهة نظر.'],['الرقمي','والويب','اجعل التجربة الرقمية مدروسة كالمادية.'],['الفيلم','والتصوير','حرّك الإحساس.'],['الطباعة','','اجعل الملموس مهمًا.'],['الاستراتيجية','والاستشارات','ابدأ بالسؤال الصحيح.']]}[lang];
+    document.querySelectorAll('.expertise-item').forEach((item,index)=>{const data=sets[index];if(!data)return;item.querySelector('h2').innerHTML=data[0]+(data[1]?`<br><em>${data[1]}</em>`:'');item.querySelector('.summary').textContent=data[2];});
+  }
+  if(page==='work'){
+    const labels=lang==='fr'?['Tous','Signalétique','Branding','Digital','Film & Photo','Print','Événements']:lang==='ar'?['الكل','لافتات','هوية','رقمي','فيلم وصور','طباعة','فعاليات']:['All','Signage','Branding','Digital','Film & Photo','Print','Events'];
+    document.querySelectorAll('.filter-bar button').forEach((button,index)=>button.textContent=labels[index]);
+    document.querySelector('.filter-bar')?.setAttribute('aria-label',lang==='fr'?'Filtrer les projets':lang==='ar'?'تصفية الأعمال':'Filter projects');
+    const cards=lang==='fr'?[['01 / BRANDING + SIGNALÉTIQUE','SANS<br>FILTRE','NÉON / ALGER'],['02 / DIGITAL','LA FORME<br>SUIT<br>L’ÉMOTION','FORME / NATIONAL'],['03 / ESPACE','ENTRER<br>DANS<br>L’IDENTITÉ','ESPACE / ORAN'],['04 / FILM + PHOTO','DANS<br>LE<br>CADRE','STUDIO / ALGER']]:lang==='ar'?[['01 / هوية + لافتات','بدون<br>فلتر','نيون / الجزائر'],['02 / رقمي','الشكل<br>يتبع<br>الإحساس','فورم / وطني'],['03 / مكاني','ادخل<br>إلى<br>الهوية','المكان / وهران'],['04 / فيلم + صور','داخل<br>الإطار','استوديو / الجزائر']]:[['01 / BRANDING + SIGNAGE','NO<br>FILTER','NEON / ALGIERS'],['02 / DIGITAL','FORM<br>FOLLOWS<br>FEELING','FORM / NATIONWIDE'],['03 / SPATIAL','ENTER<br>THE<br>IDENTITY','SPACE / ORAN'],['04 / FILM + PHOTO','IN<br>THE<br>FRAME','STUDIO / ALGIERS']];
+    document.querySelectorAll('.portfolio-card').forEach((card,index)=>{const data=cards[index];if(!data)return;card.querySelector('span').textContent=data[0];card.querySelector('strong').innerHTML=data[1];card.querySelector('small').textContent=data[2];});
+    const empty=document.querySelector('.empty-state');if(empty)empty.textContent=lang==='fr'?"Aucun projet signé dans cette discipline pour le moment.":lang==='ar'?'لا توجد أعمال موقعة في هذا المجال بعد.':'No signed pieces in this discipline yet.';
+  }
+}
+
 function setLanguage(lang){
   if(!translations[lang]) lang='en';
   const t=translations[lang];
+  translateDetailPage(lang);
   document.documentElement.lang=lang;
   document.documentElement.dir=lang==='ar'?'rtl':'ltr';
   document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(t[k]!==undefined)el.textContent=t[k]});
