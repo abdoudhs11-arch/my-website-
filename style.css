@@ -29,7 +29,7 @@ nav a:hover:after{width:100%}
 .langs{display:flex;gap:5px;color:var(--grey)}
 .langs b{color:var(--black)}
 .project-btn{background:var(--black);color:white;padding:13px 16px;transition:background-color .2s ease,color .2s ease}
-.project-btn:hover,.project-btn:focus-visible{background:var(--blue);color:white}
+.project-btn:hover,.project-btn:focus-visible{background:white;color:var(--black)}
 .project-btn i{font-style:normal;margin-left:14px}
 .menu{display:none;border:0;background:none;width:30px}
 .menu span{display:block;height:1px;background:var(--black);margin:7px}
