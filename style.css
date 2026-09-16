@@ -98,7 +98,7 @@ nav a:hover:after{width:100%}
 .work-visual{height:310px;position:relative;overflow:hidden;padding:18px;display:flex;align-items:center;justify-content:center}
 .wide .work-visual{height:680px}
 .work-visual span{position:absolute;top:18px;left:18px;font:8px "DM Mono";z-index:3}
-.work-visual strong{font:600 clamp(38px,6vw,85px)/.8 "Space Grotesk";letter-spacing:-.08em;text-align:center;z-index:2}.v2 strong{color:transparent;-webkit-text-stroke:1.5px var(--blue);text-shadow:0 0 0 var(--blue)}
+.work-visual strong{font:600 clamp(38px,6vw,85px)/.8 "Space Grotesk";letter-spacing:-.08em;text-align:center;z-index:2}.v2 strong{color:var(--black);-webkit-text-stroke:1px var(--blue)}
 .work-visual i{position:absolute;font-style:normal;font-size:100px;color:rgba(255,255,255,.18)}
 .v1{background:var(--black);color:white}.v1:before{content:"";position:absolute;width:58%;aspect-ratio:1;background:var(--blue);border-radius:50%;box-shadow:0 0 80px rgba(49,92,255,.45)}.v1 i{bottom:-25px;right:5px}
 .v2{background:#d8d7d1}.v2:before{content:"";position:absolute;width:65%;height:160%;background:var(--black);transform:rotate(35deg)}
