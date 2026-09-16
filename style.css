@@ -15,9 +15,11 @@ button{font:inherit}
 
 header{height:88px;position:absolute;top:0;left:50%;transform:translateX(-50%);width:calc(100% - 70px);max-width:1440px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;z-index:20}
 .brand{display:flex;align-items:center;gap:10px}
-.brand-symbol{width:31px;height:31px;border:1px solid currentColor;border-radius:50%;display:grid;place-items:center;font:700 15px "Space Grotesk"}
-.brand b{font:700 14px "Space Grotesk";letter-spacing:.06em;display:block}
-.brand small{font-size:6.5px;letter-spacing:.2em;display:block;margin-top:2px}
+ .logo-vector{display:block;width:184px;height:auto;max-height:54px;object-fit:contain}
+ .site-footer .logo-vector{filter:invert(1);width:210px}
+ .brand-symbol{width:31px;height:31px;border:1px solid currentColor;border-radius:50%;display:grid;place-items:center;font:700 15px "Space Grotesk"}
+ .brand b{font:700 14px "Space Grotesk";letter-spacing:.06em;display:block}
+ .brand small{font-size:6.5px;letter-spacing:.2em;display:block;margin-top:2px}
 nav{display:flex;gap:35px;margin-left:auto;margin-right:45px}
 nav a,.langs,.project-btn{font-size:9px;letter-spacing:.13em;text-transform:uppercase}
 nav a{position:relative}
