@@ -65,18 +65,7 @@ menu?.addEventListener('click',()=>{
 document.addEventListener('click',e=>{if(e.target.closest('.mobile-nav a')){document.body.classList.remove('menu-open');document.querySelector('.mobile-nav')?.remove()}});
 setLanguage(localStorage.getItem('signatrix-language')||'en');
 
-const touchRing=document.querySelector('.ring-3');
-if(touchRing){
-  touchRing.addEventListener('pointerdown',event=>{
-    const bounds=touchRing.getBoundingClientRect();
-    touchRing.style.setProperty('--touch-x',`${((event.clientX-bounds.left)/bounds.width)*100}%`);
-    touchRing.style.setProperty('--touch-y',`${((event.clientY-bounds.top)/bounds.height)*100}%`);
-    touchRing.classList.remove('is-touching');
-    void touchRing.offsetWidth;
-    touchRing.classList.add('is-touching');
-    window.setTimeout(()=>touchRing.classList.remove('is-touching'),300);
-  });
-}
+
 
 const filterButtons=document.querySelectorAll('[data-filter]');
 const portfolioCards=document.querySelectorAll('.portfolio-card');
