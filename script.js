@@ -155,6 +155,20 @@ const motionObserver = 'IntersectionObserver' in window
     }, { threshold: 0.14 })
   : null;
 
+document.querySelectorAll('.service-card[data-href]').forEach(card => {
+  const goToExpertise = event => {
+    if (event.target.closest('a')) return;
+    window.location.href = card.dataset.href;
+  };
+  card.addEventListener('click', goToExpertise);
+  card.addEventListener('keydown', event => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      goToExpertise(event);
+    }
+  });
+});
+
 document.querySelectorAll('.motion-pop, .motion-slide').forEach(element => {
   if (motionObserver) motionObserver.observe(element);
   else element.classList.add('is-visible');
