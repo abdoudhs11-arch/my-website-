@@ -45,13 +45,23 @@ budgetSelect?.addEventListener("change",()=>{
   if(!isCustom && customInput){customInput.required=false;customInput.value="";}
 });
 
-document.querySelector("#contactForm")?.addEventListener("submit",e=>{
+document.querySelector("#contactForm")?.addEventListener("submit",async e=>{
  e.preventDefault();
- const lang=localStorage.getItem("signatrix-language")||"en",t=translations[lang],f=new FormData(e.currentTarget);
- const subject=encodeURIComponent(`Signatrix project inquiry — ${f.get("company")}`);
- const body=encodeURIComponent(`Name: ${f.get("name")}\nEmail: ${f.get("email")}\nCompany: ${f.get("company")}\n\nMessage:\n${f.get("message")}`);
- window.location.href=`mailto:hello@signatrix.dz?subject=${subject}&body=${body}`;
- document.querySelector("#formStatus").textContent=t.sent;
+ const form=e.currentTarget,button=form.querySelector(".submit-btn"),status=document.querySelector("#formStatus"),lang=localStorage.getItem("signatrix-language")||"en",t=translations[lang];
+ if(button?.disabled)return;
+ button.disabled=true; status.textContent=lang==="fr"?"Envoi en cours…":lang==="ar"?"جارٍ الإرسال…":"Sending…";
+ const payload=Object.fromEntries(new FormData(form).entries());
+ payload.needs=[...form.querySelectorAll('input[name="needs"]:checked')].map(input=>input.value);
+ try{
+  const result=await fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload)});
+  const data=await result.json();
+  if(!result.ok)throw new Error(data.error||"Request failed");
+  status.textContent=lang==="fr"?"Merci — votre demande a bien été envoyée.":lang==="ar"?"شكرًا — تم إرسال طلبك بنجاح.":"Thanks — your inquiry has been sent.";
+  form.reset(); if(customBudgetField){customBudgetField.hidden=true;customBudgetField.classList.remove("is-open");}
+ }catch(error){
+  status.textContent=lang==="fr"?"Échec de l’envoi. Vérifiez vos informations et réessayez.":lang==="ar"?"تعذر الإرسال. تحقق من معلوماتك وحاول مرة أخرى.":"We couldn’t send your inquiry. Please check your details and try again.";
+  console.error("[contact] Submission failed:",error);
+ }finally{button.disabled=false;}
 });
 
 setLanguage(localStorage.getItem("signatrix-language")||"en");
