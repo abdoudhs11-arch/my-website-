@@ -83,10 +83,7 @@ motionTargets.forEach(([selector, motionClass]) => {
 const motionObserver = 'IntersectionObserver' in window
   ? new IntersectionObserver(entries => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          motionObserver.unobserve(entry.target);
-        }
+        entry.target.classList.toggle('is-visible', entry.isIntersecting);
       });
     }, { threshold: 0.14 })
   : null;
