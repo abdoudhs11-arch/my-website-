@@ -232,54 +232,38 @@ html[dir="rtl"] .hero-copy,html[dir="rtl"] .about-copy,html[dir="rtl"] .service-
   .mobile-bottom-nav a[aria-current="page"]{color:var(--black)}
 }
 
-/* Subtle entrance motion layered over the existing interactions. */
-@keyframes soft-pop-in{
-  0%{opacity:0;transform:translateY(42px) scale(.94)}
-  55%{opacity:1;transform:translateY(-7px) scale(1.025)}
-  78%{transform:translateY(2px) scale(.995)}
-  100%{opacity:1;transform:translateY(0) scale(1)}
-}
-@keyframes soft-slide-in{
-  0%{opacity:0;transform:translateX(-48px)}
-  65%{opacity:1;transform:translateX(8px)}
-  100%{opacity:1;transform:translateX(0)}
-}
+/* Install motion: transform and opacity only, with one-shot scroll reveals. */
+@keyframes settle-pop{0%{opacity:0;transform:translateY(48px) scale(.94)}70%{opacity:1;transform:translateY(-5px) scale(1.018)}100%{opacity:1;transform:none}}
+@keyframes settle-slide{0%{opacity:0;transform:translateX(-32px)}100%{opacity:1;transform:none}}
+@keyframes mount-fade{0%{opacity:0;transform:translateY(-12px)}100%{opacity:1;transform:none}}
+@keyframes mark-line{0%{opacity:0;transform:translateY(60px) scale(.94)}70%{opacity:1;transform:translateY(-4px) scale(1.015)}100%{opacity:1;transform:none}}
+@keyframes badge-pop{0%{opacity:0;transform:scale(.6) rotate(-8deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes arrow-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+@keyframes idle-pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}
 .motion-pop,.motion-slide{opacity:0}
-.motion-pop.is-visible{animation:soft-pop-in .9s cubic-bezier(.22,.8,.25,1) forwards}
-.motion-slide.is-visible{animation:soft-slide-in .82s cubic-bezier(.22,.8,.25,1) forwards}
-.hero-copy.is-visible{animation-delay:.08s}
-.hero-art.is-visible{animation-delay:.16s}
-.about-copy.is-visible{animation-delay:.08s}
-.service-card.is-visible:nth-of-type(3){animation-delay:.06s}
-.service-card.is-visible:nth-of-type(4){animation-delay:.14s}
-.work-item.is-visible:nth-child(2){animation-delay:.08s}
-.work-item.is-visible:nth-child(3){animation-delay:.16s}
-.contact h2.is-visible{animation-delay:.1s}
-.page-hero h1.is-visible{animation-delay:.12s}
-.page-hero .page-intro.is-visible{animation-delay:.2s}
-.expertise-item.is-visible:nth-child(2n){animation-delay:.08s}
-.expertise-item.is-visible:nth-child(3n){animation-delay:.16s}
-.detail-callout.is-visible{animation-delay:.08s}
-.filter-bar.is-visible{animation-delay:.06s}
-.portfolio-card.is-visible:nth-child(2n){animation-delay:.1s}
-.portfolio-card.is-visible:nth-child(3n){animation-delay:.18s}
-.case-facts.is-visible{animation-delay:.12s}
-.case-narrative article.is-visible:nth-child(2){animation-delay:.1s}
-.case-narrative article.is-visible:nth-child(3){animation-delay:.2s}
-.case-gallery.is-visible{animation-delay:.1s}
-.site-footer.is-visible{animation-delay:.08s}
+.motion-pop.is-visible{animation:settle-pop .9s cubic-bezier(.16,1,.3,1) forwards}
+.motion-slide.is-visible{animation:settle-slide .72s cubic-bezier(.16,1,.3,1) forwards}
+.mount-fade{animation:mount-fade .5s cubic-bezier(.16,1,.3,1) both}
+header .brand-symbol{animation:badge-pop .4s cubic-bezier(.34,1.56,.64,1) .12s both}
+header nav a{animation:mount-fade .5s cubic-bezier(.16,1,.3,1) var(--nav-delay) both}
+.hero h1{overflow:hidden}.hero h1 em{display:inline-block;animation:mark-line .8s cubic-bezier(.34,1.56,.64,1) .35s both}
+.hero h1{animation:mark-line .8s cubic-bezier(.34,1.56,.64,1) .23s both}
+.hero-art > *{animation:badge-pop .4s cubic-bezier(.34,1.56,.64,1) var(--badge-delay) both}
+.hero-art .orb{animation:badge-pop .4s cubic-bezier(.34,1.56,.64,1) .5s both,float 6s ease-in-out 1s infinite alternate}
+.hero-discover{animation:badge-pop .4s cubic-bezier(.34,1.56,.64,1) 1.05s both}
+.scroll-arrow{animation:arrow-bob 1.6s ease-in-out infinite}
+.contact-circle.is-idle{animation:idle-pulse 2.5s ease-in-out infinite}
+.service-card.is-visible:nth-of-type(3),.work-item.is-visible:nth-child(2){animation-delay:.1s}
+.service-card.is-visible:nth-of-type(4),.work-item.is-visible:nth-child(3){animation-delay:.25s}
+.site-footer.is-visible{animation-name:settle-slide;animation-duration:.5s}
 
-@media(max-width:850px){
-  /* Keep the same restrained pop and slide language on the primary mobile surface. */
-  .motion-pop.is-visible{animation-duration:.82s}
-  .motion-slide.is-visible{animation-duration:.74s}
-  .hero-copy.is-visible,.hero-art.is-visible,.about-copy.is-visible,.service-card.is-visible,.work-item.is-visible{will-change:transform,opacity}
-  .service-card.is-visible:nth-of-type(3),.service-card.is-visible:nth-of-type(4),.work-item.is-visible:nth-child(2),.work-item.is-visible:nth-child(3){animation-delay:.04s}
+@media(max-width:767px){
+  .motion-pop.is-visible{animation-duration:.63s}.motion-slide.is-visible{animation-duration:.5s}
+  .hero-art > *{--badge-delay:500ms!important}.hero-art .orb{animation-duration:.4s,6s}
 }
-
 @media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
-  .motion-pop,.motion-slide{opacity:1!important;transform:none!important}
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .motion-pop,.motion-slide,.mount-fade,.hero h1,.hero h1 em,.hero-art>*{opacity:1!important;transform:none!important}
 }
 
 /* Prevent translated and condensed headlines from colliding across viewports. */
