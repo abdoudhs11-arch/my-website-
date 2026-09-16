@@ -184,7 +184,7 @@ const projectDetails=[
   {outcome:'A moving image toolkit designed for launches and campaigns.',tags:['Direction','Photography','Editing']}
 ];
 portfolioCards.forEach((card,index)=>{
-  card.querySelector('.portfolio-media')?.addEventListener('click',event=>{
+  card.querySelector('.portfolio-media, a[href="#"]')?.addEventListener('click',event=>{
     event.preventDefault();
     event.stopPropagation();
   });
